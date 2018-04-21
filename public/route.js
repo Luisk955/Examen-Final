@@ -9,11 +9,26 @@
 
     $stateProvider
      .state('landingPage', {
-        url: '/',
+        url: '/landingPage',
         templateUrl: './components/landingPage/landingPage.view.html',
         data:{
           pageTitle: 'Hoteleria'
         }
+      })
+
+      .state('registerUser', {
+        url: '/registerUser',
+        templateUrl: './components/users/registerUsers/registerUsers.view.html',
+        data:{
+          pageTitle: 'Registrar usuario'
+        }/*,
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/main/main.controller.js')
+          }]
+        },
+        controller: 'controladorMain',
+        controllerAs: 'vm'*/
       })
  /*
       .state('logIn', {
