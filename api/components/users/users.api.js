@@ -30,7 +30,7 @@ module.exports.listAll = (req,res) => {
 };
 
 module.exports.update = (req,res) => {
-  UserModel.update({_id: req.body._id}, req.body, (err, user) => {
+  UserModel.update({email: req.body.email}, req.body, (err, user) => {
     if (err){
       res.json({success:false,msg:'No se ha actualizado.' + handleError(err)});
 

@@ -53,12 +53,33 @@
         data:{
           pageTitle: 'Lista de usuarios'
         },
+        params: {
+          tempUser: ''
+        },
         resolve: {
           load: ['$ocLazyLoad', ($ocLazyLoad) => {
             return $ocLazyLoad.load('./components/users/listUsers/listUsers.controller.js')
           }]
         },
         controller: 'listUsersController',
+        controllerAs: 'vm'
+      })
+
+      .state('modifyUser', {
+        url: '/modifyUser',
+        templateUrl: './components/users/modifyUsers/modifyUsers.view.html',
+        data:{
+          pageTitle: 'Lista de usuarios'
+        },
+        params: {
+          tempUser: ''
+        },
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/users/modifyUsers/modifyUsers.controller.js')
+          }]
+        },
+        controller: 'modifyUserController',
         controllerAs: 'vm'
       })
 

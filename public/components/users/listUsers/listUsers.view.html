@@ -12,6 +12,7 @@
             <th>Correo electrónico</th>
             <th>Fecha de nacimiento</th>
             <th>Teléfono</th>
+            <th>Modificar</th>
 
         </tr>
     </thead>
@@ -27,10 +28,11 @@
             <td>{{user.phone}}</td>
 
         
-            <!-- <td>
-                <button class="btn " type="button" ng-click="vm.modificar(usuario)"><i class="far fa-edit"></i></button>
+            <td>
+                <button class="btn " type="button" ng-click="vm.modify(user)"><i class="far fa-edit"></i></button>
             </td>
-            <td><button type="button" class="btn" ng-click="vm.cambiarEstado('inactivo', usuario)"><i class="far fa-times-circle"></i></button></td> -->
+
+            <!-- <td><button type="button" class="btn" ng-click="vm.cambiarEstado('inactivo', usuario)"><i class="far fa-times-circle"></i></button></td> -->
         </tr>
     </tbody>
 </table>

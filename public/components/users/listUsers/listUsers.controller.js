@@ -10,6 +10,10 @@
     let vm = this;
 
     vm.usersList = usersService.getUsersData();
+
+    vm.modify = (pUser) =>{
+      $state.go('modifyUser', { tempUser: JSON.stringify(pUser) });
+    };
     
 
         // vm.cambiarEstado =(pEstado, pUsuario)=>{
@@ -25,8 +29,6 @@
     //   vm.listaClientes = listarClientes();
     // }
 
-    // vm.modificar = (pUsuario) =>{
-    //   $state.go('main.modificarCliente', { objClienteTemp: JSON.stringify(pUsuario) });
-    // };
+ 
   }
 })();
