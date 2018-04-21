@@ -8,14 +8,14 @@
   function routing($stateProvider, $urlRouterProvider, $oclazyLoad) {
 
     $stateProvider
-     /* .state('landingPage', {
+     .state('landingPage', {
         url: '/',
         templateUrl: './components/landingPage/landingPage.view.html',
         data:{
           pageTitle: 'Hoteleria'
         }
       })
-
+ /*
       .state('logIn', {
         url: '/logIn',
         templateUrl: './components/inicioSesion/inicioSesion.view.html',
