@@ -1,17 +1,17 @@
 <div ng-include="'./components/includes/navbar.html'"></div>
 <div class="container">
-  <form class="form">
+  <form class="form" ng-submit="vm.logIn(vm.user)">
     <div class="form-group">
-      <input type="text" placeholder="Correo electrónico" class="form-control">
+      <input type="text" placeholder="Correo electrónico" class="form-control" ng-model="vm.user.email">
     </div>
-      <div class="form-group">
-      <input type="password" placeholder="Contraseña" class="form-control">
-      </div>
-      <div class="form-group"></div>
+    <div class="form-group">
+      <input type="password" placeholder="Contraseña" class="form-control" ng-model="vm.user.password">
+    </div>
+    <div class="form-group"></div>
     <button type="submit" class="btn btn-default">Iniciar sesión</button>
     <p class="message">¿No tiene cuenta?
       <a ui-sref="registerUser">Crear cuenta</a>
     </p>
-  </div>
-  </form>
+</div>
+</form>
 </div>

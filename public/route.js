@@ -8,11 +8,11 @@
   function routing($stateProvider, $urlRouterProvider, $oclazyLoad) {
 
     $stateProvider
-     
-    .state('landingPage', {
+
+      .state('landingPage', {
         url: '/',
         templateUrl: './components/landingPage/landingPage.view.html',
-        data:{
+        data: {
           pageTitle: 'Hoteleria'
         }
       })
@@ -20,7 +20,7 @@
       .state('registerUser', {
         url: '/registerUser',
         templateUrl: './components/users/registerUsers/registerUsers.view.html',
-        data:{
+        data: {
           pageTitle: 'Registrar usuario'
         },
         resolve: {
@@ -35,22 +35,22 @@
       .state('logIn', {
         url: '/logIn',
         templateUrl: './components/logIn/logIn.view.html',
-        data:{
+        data: {
           pageTitle: 'Inicio de sesión'
-        }/*,
+        },
         resolve: {
           load: ['$ocLazyLoad', ($ocLazyLoad) => {
-            return $ocLazyLoad.load('./components/main/main.controller.js')
+            return $ocLazyLoad.load('./components/logIn/logIn.controller.js')
           }]
         },
-        controller: 'controladorMain',
-        controllerAs: 'vm'*/
+        controller: 'logInController',
+        controllerAs: 'vm'
       })
 
       .state('listUser', {
         url: '/listUser',
         templateUrl: './components/users/listUsers/listUsers.view.html',
-        data:{
+        data: {
           pageTitle: 'Lista de usuarios'
         },
         params: {
@@ -68,7 +68,7 @@
       .state('modifyUser', {
         url: '/modifyUser',
         templateUrl: './components/users/modifyUsers/modifyUsers.view.html',
-        data:{
+        data: {
           pageTitle: 'Lista de usuarios'
         },
         params: {
@@ -84,46 +84,46 @@
       })
 
 
- /*
-      .state('logIn', {
-        url: '/logIn',
-        templateUrl: './components/inicioSesion/inicioSesion.view.html',
-        data:{
-          pageTitle: 'Inicio de sesión'
-        },
-        resolve: {
-          load: ['$ocLazyLoad', ($ocLazyLoad) => {
-            return $ocLazyLoad.load('./components/inicioSesion/inicioSesion.controller.js')
-          }]
-        },
-        controller: 'controladorLogin',
-        controllerAs: 'vm'
-      })
+    /*
+         .state('logIn', {
+           url: '/logIn',
+           templateUrl: './components/inicioSesion/inicioSesion.view.html',
+           data:{
+             pageTitle: 'Inicio de sesión'
+           },
+           resolve: {
+             load: ['$ocLazyLoad', ($ocLazyLoad) => {
+               return $ocLazyLoad.load('./components/inicioSesion/inicioSesion.controller.js')
+             }]
+           },
+           controller: 'controladorLogin',
+           controllerAs: 'vm'
+         })
+   
+         .state('main', {
+           url: '/main',
+           templateUrl: './components/main/main.view.html',
+           data:{
+             pageTitle: 'Iniciar sesión'
+           },
+           resolve: {
+             load: ['$ocLazyLoad', ($ocLazyLoad) => {
+               return $ocLazyLoad.load('./components/main/main.controller.js')
+             }]
+           },
+           controller: 'controladorMain',
+           controllerAs: 'vm'
+         })
+   
+         $stateProvider
+         .state('main.dashboard', {
+           url: '/dashboard',
+           templateUrl: './components/main/dashboard/mainDashboard.view.html',
+           data:{
+             pageTitle: 'Dashboard'
+           }
+         })   */
 
-      .state('main', {
-        url: '/main',
-        templateUrl: './components/main/main.view.html',
-        data:{
-          pageTitle: 'Iniciar sesión'
-        },
-        resolve: {
-          load: ['$ocLazyLoad', ($ocLazyLoad) => {
-            return $ocLazyLoad.load('./components/main/main.controller.js')
-          }]
-        },
-        controller: 'controladorMain',
-        controllerAs: 'vm'
-      })
-
-      $stateProvider
-      .state('main.dashboard', {
-        url: '/dashboard',
-        templateUrl: './components/main/dashboard/mainDashboard.view.html',
-        data:{
-          pageTitle: 'Dashboard'
-        }
-      })   */
-    
 
     $urlRouterProvider.otherwise('/');
   };

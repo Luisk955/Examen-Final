@@ -12,15 +12,21 @@
 
     let publicAPI = {
       setUserData: _setUserData,
-      getUsersData:_getUsersData,
-      updateUserData:_updateUserData
+      getUsersData: _getUsersData,
+      updateUserData: _updateUserData,
+      setSession: _setSession,
+      closeSession: _closeSession
     }
     return publicAPI
 
-    function _setUserData (data) {
+
+    //Inicio Usuarios
+
+
+    function _setUserData(data) {
       let response;
 
-      let petition = $.ajax ({
+      let petition = $.ajax({
         url: 'http://localhost:4000/api/save_user',
         type: 'post',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
@@ -40,22 +46,22 @@
         },
       });
 
-      petition.done (datos => {
+      petition.done(datos => {
         response = datos.msj;
-        console.log ('Petición realizada con éxito');
+        console.log('Petición realizada con éxito');
       });
-      petition.fail (error => {
+      petition.fail(error => {
         response = error;
-        console.log ('Ocurrió un error');
+        console.log('Ocurrió un error');
       });
 
       return response;
     }
 
-    function _getUsersData () {
+    function _getUsersData() {
       let usersList = [];
 
-      let petition = $.ajax ({
+      let petition = $.ajax({
         url: 'http://localhost:4000/api/get_all_users',
         type: 'get',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
@@ -64,23 +70,23 @@
         data: {},
       });
 
-      petition.done (users => {
-        console.log ('Datos que vienen desde la base de datos');
-        console.log (users);
+      petition.done(users => {
+        console.log('Datos que vienen desde la base de datos');
+        console.log(users);
         usersList = users;
       });
-      petition.fail (() => {
+      petition.fail(() => {
         usersList = [];
-        console.log ('Ocurrió un error');
+        console.log('Ocurrió un error');
       });
 
       return usersList;
     }
 
-    function _updateUserData (data) {
+    function _updateUserData(data) {
       let response;
 
-      let peticion = $.ajax ({
+      let peticion = $.ajax({
         url: 'http://localhost:4000/api/update_user',
         type: 'put',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
@@ -104,15 +110,44 @@
         response = datos.success;
         console.log('Petición realizada con éxito');
       });
-      peticion.fail (error => {
+      peticion.fail(error => {
         response = error;
-        console.log ('Ocurrió un error');
+        console.log('Ocurrió un error');
       });
 
       return response;
     }
 
+    //Final Usuarios
 
+    //
+    //Inicio Autenticación
+    //
+
+
+    function _setSession(value) {
+      let response = true;
+      sessionStorage.setItem('session', JSON.stringify(value));
+      return response;
+    }
+
+
+    function _closeSession() {
+      let response = true;
+      sessionStorage.removeItem('session');
+      return response;
+    }
+
+
+    function _getSession() {
+      let sessionActive = JSON.parse(sessionStorage.getItem('session'));
+
+      return sessionActive;
+    }
+
+    //
+    //Final Autenticación
+    //
 
   };
 
