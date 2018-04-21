@@ -21,14 +21,14 @@
         templateUrl: './components/users/registerUsers/registerUsers.view.html',
         data:{
           pageTitle: 'Registrar usuario'
-        }/*,
+        },
         resolve: {
           load: ['$ocLazyLoad', ($ocLazyLoad) => {
-            return $ocLazyLoad.load('./components/main/main.controller.js')
+            return $ocLazyLoad.load('./components/users/registerUsers/registerUser.controller.js')
           }]
         },
-        controller: 'controladorMain',
-        controllerAs: 'vm'*/
+        controller: 'usersController',
+        controllerAs: 'vm'
       })
 
       .state('logIn', {

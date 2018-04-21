@@ -1,8 +1,45 @@
 <div ng-include="'./components/includes/navbar.html'"></div>
-<div class="container"><form action="" class="form">
-  <div class="form-group">
-    <label for="">cagoenjah</label>
-    <input type="text" class="form-control">
-  </div>
-</form>
+
+<div class="container">
+  <form class="form" ng-submit="vm.registerClient(vm.newClient)">
+    <div class="form-group">
+      <label for="">Cédula</label>
+      <input type="text" class="form-control" ng-model="vm.newClient.idNumber">
+    </div>
+    <div class="form-group">
+      <label for="">Primer nombre</label>
+      <input type="text" class="form-control" ng-model="vm.newClient.name1">
+    </div>
+    <div class="form-group">
+      <label for="">Segundo nombre</label>
+      <input type="text" class="form-control" ng-model="vm.newClient.name2">
+    </div>
+    <div class="form-group">
+      <label for="">Primer apellido</label>
+      <input type="text" class="form-control" ng-model="vm.newClient.lastName1">
+    </div>
+    <div class="form-group">
+      <label for="">Segundo apellido</label>
+      <input type="text" class="form-control" ng-model="vm.newClient.lastName2">
+    </div>
+    <div class="form-group">
+        <label for="">Correo electrónico</label>
+        <input type="email" class="form-control" ng-model="vm.newClient.email">
+      </div>
+    <div class="form-group">
+      <label for="">Fecha de nacimiento</label>
+      <input type="date" class="form-control" ng-model="vm.newClient.birthDate">
+    </div>
+    <div class="form-group">
+      <label for="">Teléfono</label>
+      <input type="text" class="form-control" ng-model="vm.newClient.phone">
+    </div>
+    <div class="form-group">
+      <label for="">Contraseña</label>
+      <input type="password" class="form-control" ng-model="vm.newClient.password">
+    </div>
+    <div class="form-group">
+      <button type="sumbmit" class="btn btn-default">Registrar</button>
+    </div>
+  </form>
 </div>
