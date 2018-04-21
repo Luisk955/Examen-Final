@@ -12,6 +12,7 @@ var UserSchema = new mongoose.Schema({
   birthDate : {type : Date, required: true},
   phone : {type : String, required : true, unique: true},
   password : {type : String, required : true},
+  type : {type : String, required : true},
 });
 
 //nombre del modelo dentro del back end y el userSchema es el nombre dentro de mongoose

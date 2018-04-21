@@ -8,7 +8,8 @@
   function routing($stateProvider, $urlRouterProvider, $oclazyLoad) {
 
     $stateProvider
-     .state('landingPage', {
+     
+    .state('landingPage', {
         url: '/',
         templateUrl: './components/landingPage/landingPage.view.html',
         data:{
@@ -27,7 +28,7 @@
             return $ocLazyLoad.load('./components/users/registerUsers/registerUser.controller.js')
           }]
         },
-        controller: 'usersController',
+        controller: 'registerUsersController',
         controllerAs: 'vm'
       })
 
@@ -45,6 +46,23 @@
         controller: 'controladorMain',
         controllerAs: 'vm'*/
       })
+
+      .state('listUser', {
+        url: '/listUser',
+        templateUrl: './components/users/listUsers/listUsers.view.html',
+        data:{
+          pageTitle: 'Lista de usuarios'
+        },
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/users/listUsers/listUsers.controller.js')
+          }]
+        },
+        controller: 'listUsersController',
+        controllerAs: 'vm'
+      })
+
+
  /*
       .state('logIn', {
         url: '/logIn',

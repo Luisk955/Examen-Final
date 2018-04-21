@@ -1,0 +1,36 @@
+<div ng-include="'./components/includes/navbar.html'"></div>
+<table class="table">
+    <h1 class="col-12">Usuarios activos</h1>
+    <hr/>
+    <thead class="table-primary">
+        <tr>
+            <th>Cédula</th>
+            <th>Primer nombre</th>
+            <th>Segundo nombre</th>
+            <th>Primer Apellido</th>
+            <th>Segundo apellido</th>
+            <th>Correo electrónico</th>
+            <th>Fecha de nacimiento</th>
+            <th>Teléfono</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="user in vm.usersList">
+            <td>{{user.idNumber}}</td>
+            <td>{{user.name1}}</td>
+            <td>{{user.name2}}</td>
+            <td>{{user.lastName1}}</td>
+            <td>{{user.lastName2}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.birthDate | date}}</td>
+            <td>{{user.phone}}</td>
+
+        
+            <!-- <td>
+                <button class="btn " type="button" ng-click="vm.modificar(usuario)"><i class="far fa-edit"></i></button>
+            </td>
+            <td><button type="button" class="btn" ng-click="vm.cambiarEstado('inactivo', usuario)"><i class="far fa-times-circle"></i></button></td> -->
+        </tr>
+    </tbody>
+</table>

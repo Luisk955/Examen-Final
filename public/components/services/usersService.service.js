@@ -11,14 +11,15 @@
 
 
     let publicAPI = {
-      setUserData: _setUserData
+      setUserData: _setUserData,
+      getUsersData:_getUsersData
     }
     return publicAPI
 
     function _setUserData (data) {
       let response;
 
-      let peticion = $.ajax ({
+      let petition = $.ajax ({
         url: 'http://localhost:4000/api/save_user',
         type: 'post',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
@@ -34,19 +35,45 @@
           birthDate: data.birthDate,
           phone: data.phone,
           password: data.password,
+          type: data.type,
         },
       });
 
-      peticion.done (datos => {
+      petition.done (datos => {
         response = datos.msj;
         console.log ('Petición realizada con éxito');
       });
-      peticion.fail (error => {
+      petition.fail (error => {
         response = error;
         console.log ('Ocurrió un error');
       });
 
       return response;
+    }
+
+    function _getUsersData () {
+      let usersList = [];
+
+      let petition = $.ajax ({
+        url: 'http://localhost:4000/api/get_all_users',
+        type: 'get',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {},
+      });
+
+      petition.done (users => {
+        console.log ('Datos que vienen desde la base de datos');
+        console.log (users);
+        usersList = users;
+      });
+      petition.fail (() => {
+        usersList = [];
+        console.log ('Ocurrió un error');
+      });
+
+      return usersList;
     }
 
 

@@ -1,5 +1,5 @@
 class User {
-  constructor(pIdNumber, pName1, pName2, pLastName1, pLastName2, pEmail, pBirthDate, pPhone, pPassword ) {
+  constructor(pIdNumber, pName1, pName2, pLastName1, pLastName2, pEmail, pBirthDate, pPhone, pPassword, pType) {
     this._id = 0;  
     this.idNumber = pIdNumber;
       this.name1 = pName1; 
@@ -9,7 +9,8 @@ class User {
       this.email = pEmail;
       this.birthDate = pBirthDate;
       this.phone = pPhone;
-      this.password = pPassword;  
+      this.password = pPassword;
+      this.type = pType;  
   }
   setId(pId){
     this._id = pId;
