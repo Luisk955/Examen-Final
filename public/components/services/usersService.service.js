@@ -48,6 +48,7 @@
 
       petition.done(datos => {
         response = datos.msj;
+        _sendMail(data);
         console.log('Petición realizada con éxito');
       });
       petition.fail(error => {
@@ -153,16 +154,44 @@
       return sessionActive;
     }
 
-    //
-    //Final Autenticación
-    //
+
 
     //
-    //Final Hoteles
+    //Inicio envio correo
     //
+//
+    //Inicio envio correo
+    //
+    function _sendMail (data) {
+      let response;
+      console.log(data);
+      let peticion = $.ajax ({
+        url: 'http://localhost:4000/api/mail',
+        type: 'post',
+        contentType: 'application/x-www-form-urlencoded; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        data: {
+          email: data.email,
+          password: data.password,
+          subject: 'Bienvenido ' + data.name1 +' ' + data.name2 + ' ' + data.lastName1
+        },
+      });
+
+      peticion.done (datos => {
+        response = datos.success;
+        console.log ('Petición realizada con éxito');
+      });
+      peticion.fail (error => {
+        response = error;
+        console.log ('Ocurrió un error');
+      });
+
+      return response;
+    }
 
     //
-    //Final Hoteles
+    //Final envio correo
     //
 
   };

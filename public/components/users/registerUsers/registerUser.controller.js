@@ -18,6 +18,7 @@
      
       let confirmation = usersService.setUserData(tempClient);
       if(confirmation == 'Se registró el usuario correctamente'){
+    
         swal("Registro exitoso", "El cliente ha sido registrado correctamente", "success", {
           button: "Aceptar",
         });
