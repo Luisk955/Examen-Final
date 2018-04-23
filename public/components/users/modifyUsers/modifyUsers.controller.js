@@ -51,7 +51,6 @@
           objUser.name2 = pUser.name2;
           objUser.lastName1 = pUser.lastName1;
           objUser.lastName2 = pUser.lastName2;
-          objUser.email = pUser.email;
           objUser.birthDate = pUser.birthDate;
           objUser.phone = pUser.phone;
     
@@ -63,6 +62,7 @@
       swal("Edición exitosa", "Usuario modificado correctamente", "success", {
         button: "Aceptar",
       });
+      $location.path('/listUser');
 
       // let sesion = JSON.parse(sessionStorage.getItem('sesion'));
       // if(sesion.tipo == '5'){

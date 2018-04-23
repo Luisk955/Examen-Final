@@ -61,7 +61,8 @@ app.use( (req, res, next) => {
 
  ///Aqui van agregados todos los componentes amiguitos!!
 const index = require('./index'),
-      users = require('./components/users/users.route');
+      users = require('./components/users/users.route'),
+      hotels = require('./components/hotels/hotels.route');
       
 
 /**
@@ -69,6 +70,7 @@ const index = require('./index'),
  */
 
 ///Aqui van agregados todos los componentes amiguitos!!
+app.use('/api', hotels);
 app.use('/api', users);
 app.use('/', index);
 

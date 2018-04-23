@@ -73,7 +73,15 @@
       petition.done(users => {
         console.log('Datos que vienen desde la base de datos');
         console.log(users);
-        usersList = users;
+        users.forEach(objUser => {
+          let date = new Date(objUser.birthDate);
+          objUser.birthDate = date;
+          let userTemp = Object.assign(new User(), objUser);
+
+          console.log(userTemp);
+          usersList.push(userTemp);
+        });
+        // usersList = users;
       });
       petition.fail(() => {
         usersList = [];
@@ -86,7 +94,7 @@
     function _updateUserData(data) {
       let response;
 
-      let peticion = $.ajax({
+      let petition = $.ajax({
         url: 'http://localhost:4000/api/update_user',
         type: 'put',
         contentType: 'application/x-www-form-urlencoded; charset=utf-8',
@@ -106,11 +114,11 @@
         }
       });
 
-      peticion.done((datos) => {
+      petition.done((datos) => {
         response = datos.success;
         console.log('Petición realizada con éxito');
       });
-      peticion.fail(error => {
+      petition.fail(error => {
         response = error;
         console.log('Ocurrió un error');
       });
@@ -147,6 +155,14 @@
 
     //
     //Final Autenticación
+    //
+
+    //
+    //Final Hoteles
+    //
+
+    //
+    //Final Hoteles
     //
 
   };

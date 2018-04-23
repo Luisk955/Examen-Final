@@ -69,7 +69,7 @@
         url: '/modifyUser',
         templateUrl: './components/users/modifyUsers/modifyUsers.view.html',
         data: {
-          pageTitle: 'Lista de usuarios'
+          pageTitle: 'Modificación de usuarios'
         },
         params: {
           tempUser: ''
@@ -83,6 +83,56 @@
         controllerAs: 'vm'
       })
 
+      .state('registerHotel', {
+        url: '/registerHotel',
+        templateUrl: './components/hotels/registerHotels/registerHotels.view.html',
+        data: {
+          pageTitle: 'Registrar hotel'
+        },
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/hotels/registerHotels/registerHotels.controller.js')
+          }]
+        },
+        controller: 'registerHotelsController',
+        controllerAs: 'vm'
+      })
+
+      .state('listHotels', {
+        url: '/listHotels',
+        templateUrl: './components/hotels/listHotels/listHotels.view.html',
+        data: {
+          pageTitle: 'Lista de hoteles'
+        },
+        params: {
+          tempHotel: ''
+        },
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/hotels/listHotels/listHotels.controller.js')
+          }]
+        },
+        controller: 'listHotelsController',
+        controllerAs: 'vm'
+      })
+
+      .state('modifyHotel', {
+        url: '/modifyHotel',
+        templateUrl: './components/hotels/modifyHotels/modifyHotels.view.html',
+        data: {
+          pageTitle: 'Modificación de hoteles'
+        },
+        params: {
+          tempHotel: ''
+        },
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/hotels/modifyHotels/modifyHotels.controller.js')
+          }]
+        },
+        controller: 'modifyHotelController',
+        controllerAs: 'vm'
+      })
 
     /*
          .state('logIn', {

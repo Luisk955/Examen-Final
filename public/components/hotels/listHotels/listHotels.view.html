@@ -1,0 +1,43 @@
+<div ng-include="'./components/includes/navbar.html'"></div>
+<table class="table">
+  <h1 class="col-12">Hoteles</h1>
+  <hr/>
+  <thead class="table-primary">
+    <tr>
+      <th>Imagen</th>
+      <th>Nombre</th>
+      <th>Ubicación en el mapa</th>
+      <th>Dirección</th>
+      <th>Dirección exacta</th>
+      <th>Teléfono de servicio</th>
+      <th>Correo electrónico de servicio</th>
+      <th>Teléfono de reservaciones</th>
+      <th>Correo electrónico para reservaciones</th>
+      <th>Modificar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="hotel in vm.hotelsList">
+      <td>
+        <img src="{{hotel.photo}}" width="60" height="60">
+      </td>
+      <td>{{hotel.name}}</td>
+      <td>{{hotel.getLocation()}}</td>
+      <td>{{hotel.getDirection()}}</td>
+      <td>{{hotel.exactDirection}}</td>
+      <td>{{hotel.servicePhone}}</td>
+      <td>{{hotel.serviceEmail}}</td>
+      <td>{{hotel.reservationPhone}}</td>
+      <td>{{hotel.reservationEmail}}</td>
+
+
+      <td>
+        <button class="btn " type="button" ng-click="vm.modify(hotel)">
+          <i class="far fa-edit"></i>
+        </button>
+      </td>
+
+      <!-- <td><button type="button" class="btn" ng-click="vm.cambiarEstado('inactivo', usuario)"><i class="far fa-times-circle"></i></button></td> -->
+    </tr>
+  </tbody>
+</table>

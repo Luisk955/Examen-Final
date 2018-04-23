@@ -22,7 +22,12 @@
 
       for(let i = 0; i < usersList.length; i++){
         if(usersList[i].email == credentials.email && usersList[i].password == credentials.password){
-          usersService.setSession(usersList[i].email);
+          usersService.setSession(
+          {
+            email: usersList[i].email,
+            type: usersList[i].type
+          }
+          );
           log = true;
         }
       }
@@ -30,11 +35,12 @@
     };
 
     function _logOut(){
-      let cierreExitoso = dataStorageFactory.closeSession();
+      let cierreExitoso = usersService.closeSession();
 
       return cierreExitoso;
     };
 
+    
     // function _getAuthUser() {
     //   let sessionActiva = dataStorageFactory.getSession(),
     //       usuarioActivo;
