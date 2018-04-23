@@ -35,11 +35,8 @@ module.exports.update = (req,res) => {
   HotelModel.update({_id: req.body._id}, req.body, (err, hotel) => {
     if (err){
       res.json({success:false, msg: 'No se ha actualizado.' + handleError(err)});
-      console.log(handleError(err));
-
     } else{
       res.json({success:true,msg:'Se ha actualizado correctamente.' + res});
-      console.log(res);
     }
   });
 };
