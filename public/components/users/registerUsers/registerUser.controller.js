@@ -11,6 +11,8 @@
 
     vm.newClient = {};
 
+    
+
     vm.registerClient = (pNewClient) =>{
       pNewClient.type = 1;
       

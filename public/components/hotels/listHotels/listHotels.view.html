@@ -29,7 +29,7 @@
       <td>{{hotel.serviceEmail}}</td>
       <td>{{hotel.reservationPhone}}</td>
       <td>{{hotel.reservationEmail}}</td>
-
+      <!-- {{hotel.latitude}}, {{hotel.longitude}} -->
 
       <td>
         <button class="btn " type="button" ng-click="vm.modify(hotel)">
@@ -41,3 +41,12 @@
     </tr>
   </tbody>
 </table>
+
+
+<div ng-repeat="hotel in vm.hotelsList">
+  <p>{{hotel.name}}</p>
+  <p>{{hotel.getLocation()}}</p>
+  <ng-map id="map" center="{{hotel.latitude}}, {{hotel.longitude}}" styles="width: 50%; height: 20em;">
+    <marker position="{{hotel.latitude}}, {{hotel.longitude}}"></marker>
+  </ng-map>
+</div>
