@@ -17,7 +17,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="user in vm.usersList">
+        <tr ng-repeat="user in vm.usersList" ng-if="user.type === '1'">
             <td>{{user.idNumber}}</td>
             <td>{{user.name1}}</td>
             <td>{{user.name2}}</td>
