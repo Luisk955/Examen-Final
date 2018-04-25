@@ -47,7 +47,39 @@
         controllerAs: 'vm'
       })
 
-      .state('listUser', {
+      .state('main', {
+        url: '/main',
+        templateUrl: './components/main/main.view.html',
+        data: {
+          pageTitle: 'Vista principal'
+        },
+        params: {
+          tempHotel: ''
+        },
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/main/main.controller.js')
+          }]
+        },
+        controller: 'mainController',
+        controllerAs: 'vm'
+      })
+
+      .state('main.registerUser', {
+        url: '/registerUser',
+        templateUrl: './components/users/registerUsers/registerUsers.view.html',
+        data: {
+          pageTitle: 'Registrar usuario'
+        },
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/users/registerUsers/registerUser.controller.js')
+          }]
+        },
+        controller: 'registerUsersController',
+        controllerAs: 'vm'
+      })
+      .state('main.listUser', {
         url: '/listUser',
         templateUrl: './components/users/listUsers/listUsers.view.html',
         data: {
@@ -65,7 +97,7 @@
         controllerAs: 'vm'
       })
 
-      .state('modifyUser', {
+      .state('main.modifyUser', {
         url: '/modifyUser',
         templateUrl: './components/users/modifyUsers/modifyUsers.view.html',
         data: {
@@ -83,7 +115,7 @@
         controllerAs: 'vm'
       })
 
-      .state('registerHotel', {
+      .state('main.registerHotel', {
         url: '/registerHotel',
         templateUrl: './components/hotels/registerHotels/registerHotels.view.html',
         data: {
@@ -98,7 +130,7 @@
         controllerAs: 'vm'
       })
 
-      .state('listHotels', {
+      .state('main.listHotels', {
         url: '/listHotels',
         templateUrl: './components/hotels/listHotels/listHotels.view.html',
         data: {
@@ -116,7 +148,7 @@
         controllerAs: 'vm'
       })
 
-      .state('modifyHotel', {
+      .state('main.modifyHotel', {
         url: '/modifyHotel',
         templateUrl: './components/hotels/modifyHotels/modifyHotels.view.html',
         data: {

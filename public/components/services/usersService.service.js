@@ -15,7 +15,8 @@
       getUsersData: _getUsersData,
       updateUserData: _updateUserData,
       setSession: _setSession,
-      closeSession: _closeSession
+      closeSession: _closeSession,
+      getAuthUser:_getAuthUser
     }
     return publicAPI
 
@@ -149,10 +150,23 @@
 
 
     function _getSession() {
-      let sessionActive = JSON.parse(sessionStorage.getItem('session'));
+      let activeSession = JSON.parse(sessionStorage.getItem('session'));
 
-      return sessionActive;
+      return activeSession;
     }
+
+    function _getAuthUser() {
+      let activeSession = _getSession(),
+          userData;
+
+      if (!activeSession) {
+          userData = undefined;
+      } else {
+          userData = activeSession.email;
+      }
+
+      return userData;
+  }
 
 
 

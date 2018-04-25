@@ -12,7 +12,7 @@
     vm.hotelsList = hotelsService.getHotelsData();
 
     vm.modify = (pHotel) =>{
-      $state.go('modifyHotel', { tempHotel: JSON.stringify(pHotel) });
+      $state.go('main.modifyHotel', { tempHotel: JSON.stringify(pHotel) });
     };
     
 

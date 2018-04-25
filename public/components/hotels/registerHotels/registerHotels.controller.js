@@ -65,12 +65,12 @@
      });
     }
 
-    NgMap.getMap("map").then((map) => {
-      console.log(map.getCenter());
-      console.log('markers', map.markers);
-      console.log('shapes', map.shapes);
-      vm.map = map;
-    });
+    // NgMap.getMap("map").then((map) => {
+    //   console.log(map.getCenter());
+    //   console.log('markers', map.markers);
+    //   console.log('shapes', map.shapes);
+    //   vm.map = map;
+    // });
 
     vm.getCurrentLocation = ($event) => {
       let postion = [$event.latLng.lat(), $event.latLng.lng()];

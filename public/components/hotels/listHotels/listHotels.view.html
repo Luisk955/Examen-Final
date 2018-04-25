@@ -1,5 +1,16 @@
-<div ng-include="'./components/includes/navbar.html'"></div>
-<table class="table">
+<div ng-repeat="hotel in vm.hotelsList">
+  <h1>{{hotel.name}}</h1>
+  <img src="{{hotel.photo}}" width="60" height="60">
+  <p>{{hotel.getLocation()}}</p>
+  <button class="btn " type="button" ng-click="vm.modify(hotel)">
+    <i class="far fa-edit"></i>
+  </button>
+  <ng-map id="map" center="{{hotel.latitude}}, {{hotel.longitude}}" styles="width: 50%; height: 20em;">
+    <marker position="{{hotel.latitude}}, {{hotel.longitude}}"></marker>
+  </ng-map>
+</div>
+
+<!-- <table class="table">
   <h1 class="col-12">Hoteles</h1>
   <hr/>
   <thead class="table-primary">
@@ -29,7 +40,7 @@
       <td>{{hotel.serviceEmail}}</td>
       <td>{{hotel.reservationPhone}}</td>
       <td>{{hotel.reservationEmail}}</td>
-      <!-- {{hotel.latitude}}, {{hotel.longitude}} -->
+      {{hotel.latitude}}, {{hotel.longitude}}
 
       <td>
         <button class="btn " type="button" ng-click="vm.modify(hotel)">
@@ -37,16 +48,7 @@
         </button>
       </td>
 
-      <!-- <td><button type="button" class="btn" ng-click="vm.cambiarEstado('inactivo', usuario)"><i class="far fa-times-circle"></i></button></td> -->
+      <td><button type="button" class="btn" ng-click="vm.cambiarEstado('inactivo', usuario)"><i class="far fa-times-circle"></i></button></td>
     </tr>
   </tbody>
-</table>
-
-
-<div ng-repeat="hotel in vm.hotelsList">
-  <p>{{hotel.name}}</p>
-  <p>{{hotel.getLocation()}}</p>
-  <ng-map id="map" center="{{hotel.latitude}}, {{hotel.longitude}}" styles="width: 50%; height: 20em;">
-    <marker position="{{hotel.latitude}}, {{hotel.longitude}}"></marker>
-  </ng-map>
-</div>
+</table> -->

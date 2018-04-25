@@ -1,15 +1,23 @@
-<div ng-include="'./components/includes/navbar.html'"></div>
-
 <div class="container">
-  <form class="form" ng-submit="vm.modifHotel(vm.modifyHotel)">
+  <form class="form" ng-submit="vm.preEditHotel(vm.modifyHotel)">
+
+    <div class="form-group">
+      <label for="">Seleccione la ubicación del hotel</label>
+      <ng-map class="map-responsive" id="map" zoom="12" center="current-location" styles="width: 50%; height: 20em;">
+        <marker position="current-location" draggable="true" on-dragend="vm.getCurrentLocation($event)" coords="marker.coords" options="marker.options"></marker>
+      </ng-map>
+    </div>
+
     <div class="form-group">
       <label for="">Nombre</label>
       <input type="text" class="form-control" ng-model="vm.modifyHotel.name">
     </div>
+
     <div class="form-group">
       <label for="">Latitud</label>
       <input type="text" class="form-control" ng-model="vm.modifyHotel.latitude">
     </div>
+    
     <div class="form-group">
       <label for="">Longitud</label>
       <input type="text" class="form-control" ng-model="vm.modifyHotel.longitude">
@@ -26,11 +34,11 @@
 
     <div class="form-group">
       <label for="">Cantón</label>
-        <input list="sltCanton" name="sltCanton" class="form-control" ng-change="vm.rellenarDistrito(vm.modifyHotel.canton)" ng-model="vm.modifyHotel.canton"
-          required>
-        <datalist id="sltCanton">
-          <option ng-repeat="canton in vm.cantones" value="{{canton.name}}">
-        </datalist>
+      <input list="sltCanton" name="sltCanton" class="form-control" ng-change="vm.rellenarDistrito(vm.modifyHotel.canton)" ng-model="vm.modifyHotel.canton"
+        required>
+      <datalist id="sltCanton">
+        <option ng-repeat="canton in vm.cantones" value="{{canton.name}}">
+      </datalist>
     </div>
     <div class="form-group">
       <label for="">Distrito</label>

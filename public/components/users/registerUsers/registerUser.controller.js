@@ -11,7 +11,8 @@
 
     vm.newClient = {};
 
-    
+    vm.userAuth = usersService.getAuthUser();
+    console.log(vm.userAuth);
 
     vm.registerClient = (pNewClient) =>{
       pNewClient.type = 1;

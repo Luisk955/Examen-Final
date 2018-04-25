@@ -1,4 +1,4 @@
-<div ng-include="'./components/includes/navbar.html'"></div>
+<div ng-include="'./components/includes/navbar.html'" ng-hide="vm.userAuth != undefined"></div>
 
 <div class="container">
   <form class="form" ng-submit="vm.registerClient(vm.newClient)">

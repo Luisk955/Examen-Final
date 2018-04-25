@@ -1,5 +1,3 @@
-<div ng-include="'./components/includes/navbar.html'"></div>
-
 <div class="container">
   <form class="form" ng-submit="vm.modifUser(vm.modifyUser)">
     <div class="form-group">
@@ -23,9 +21,9 @@
       <input type="text" class="form-control" ng-model="vm.modifyUser.lastName2">
     </div>
     <div class="form-group">
-        <label for="">Correo electrónico</label>
-        <input type="email" class="form-control" ng-model="vm.modifyUser.email" disabled>
-      </div>
+      <label for="">Correo electrónico</label>
+      <input type="email" class="form-control" ng-model="vm.modifyUser.email" disabled>
+    </div>
     <div class="form-group">
       <label for="">Fecha de nacimiento</label>
       <input type="date" class="form-control" ng-model="vm.modifyUser.birthDate">

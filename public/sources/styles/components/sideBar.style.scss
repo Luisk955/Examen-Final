@@ -1,0 +1,22 @@
+// Estilos generales
+body {
+  background: #fff;
+
+  aside{
+    height: 100vh;
+
+    a{
+      &:hover{
+        background: #D8F1D3;
+      }
+    }
+  }
+
+  .greenBg{
+    background: #BAD696;
+  }
+
+  .text-white{
+    color: #fff;
+  }
+}

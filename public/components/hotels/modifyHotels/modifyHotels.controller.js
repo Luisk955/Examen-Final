@@ -4,9 +4,9 @@
     .module('hoteles')
     .controller('modifyHotelController', modifyHotelController);
 
-  modifyHotelController.$inject = ['$http', '$stateParams', '$state', '$location', 'hotelsService'];
+  modifyHotelController.$inject = ['$http', '$stateParams', '$state', '$location', 'hotelsService', 'imageService', 'Upload', 'NgMap'];
 
-  function modifyHotelController($http, $stateParams, $state, $location, hotelsService) {
+  function modifyHotelController($http, $stateParams, $state, $location, hotelsService, imageService, Upload, NgMap) {
     let vm = this;
 
     vm.modifyHotel = {};
@@ -43,10 +43,30 @@
       vm.modifyHotel.photo = vm.objNewHotel.photo;
     
 
-    
+      vm.cloudObj = imageService.getConfiguration();
 
-    vm.modifHotel = (pHotel) => {
+      vm.preEditHotel = (pNewHotel) => {
+        vm.cloudObj.data.file = pNewHotel.photo[0];
+        Upload.upload(vm.cloudObj).success((data) =>{
+          vm.modifHotel(pNewHotel, data.url);
+       });
+      }
+
+      vm.pos = [JSON.stringify(vm.modifyHotel.latitude), JSON.stringify(vm.modifyHotel.latitude)];
+      vm.getCurrentLocation = ($event) => {
+        let postion = [$event.latLng.lat(), $event.latLng.lng()];
+        console.log(postion);
+        vm.current = postion;
+      }
+
+    vm.modifHotel = (pHotel, url) => {
       let hotelsList = hotelsService.getHotelsData();
+      
+        pHotel.photo = url;
+
+      
+      pHotel.latitude = vm.current[0];
+      pHotel.longitude = vm.current[1];
 
       hotelsList.forEach(objHotel => {
         if (objHotel._id == vm.objNewHotel._id) {
