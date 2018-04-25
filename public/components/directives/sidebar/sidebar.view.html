@@ -1,7 +1,7 @@
-<aside class="greenBg">
-    <ul class="nav flex-column">
+<aside class="greenBg" id="sidebar">
+    <ul class="nav flex-column navalign">
       
-      <li class="nav-item dropright" ng-hide="vm.userAuth != 'administrador@hoteleria.cr'">
+      <li class="nav-item dropright" ng-hide="vm.userAuth != 'administrador@hoteleria.cr'" >
         <a class="nav-link text-white dropdown-toggle py-5 mt-4" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <div class="d-inline">
             <i class="fas fa-building"></i>
@@ -52,7 +52,7 @@
       <button class="nav-item logOut">
           <a class="nav-link text-white py-5" ng-click="vm.logOut()" ui-sref="logIn">
             <div class="d-inline">
-              <i class="fas fa-user"></i>
+              <i class="fas fa-sign-out-alt"></i>
             </div>
             <p class="d-inline">Cerrar sesión</p>
           </a>

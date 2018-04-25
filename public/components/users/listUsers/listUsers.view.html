@@ -1,41 +1,23 @@
-<table class="table">
-    <h1 class="col-12">Usuarios activos</h1>
-    <hr/>
-    <thead class="table-primary">
-        <tr>
-            <th>Cédula</th>
-            <th>Primer nombre</th>
-            <th>Segundo nombre</th>
-            <th>Primer Apellido</th>
-            <th>Segundo apellido</th>
-            <th>Correo electrónico</th>
-            <th>Fecha de nacimiento</th>
-            <th>Teléfono</th>
-            <th>Modificar</th>
+<form>
+    <div class=" col-12 col-md-4 mt-4 mb-4">
+        <h3>Buscar usuario</h3>
+        <input type="text" class="form-control" ng-model="searchUser" placeholder="Ingrese lo que desea buscar">
+    </div>
+</form>
 
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="user in vm.usersList" ng-if="user.type === '1'">
-            <td>{{user.idNumber}}</td>
-            <td>{{user.name1}}</td>
-            <td>{{user.name2}}</td>
-            <td>{{user.lastName1}}</td>
-            <td>{{user.lastName2}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.birthDate | date}}</td>
-            <td>{{user.phone}}</td>
-
-
-            <td>
-                <button class="btn " type="button" ng-click="vm.modify(user)">
-                    <i class="far fa-edit"></i>
-                </button>
-            </td>
-
-            <!-- <td><button type="button" class="btn" ng-click="vm.cambiarEstado('inactivo', usuario)"><i class="far fa-times-circle"></i></button></td> -->
-        </tr>
-    </tbody>
-</table>
-
-<button ng-click="vm.logOut()">Cerrar sesión</button>
+<div class="row">
+    <div class="col-md-6" ng-repeat="user in vm.usersList | filter:searchUser" ng-if="user.type === '1'">
+        <div class="jumbotron">
+            <img src="../../../sources/images/user.png" class="img img-responsive img-circle" width="100" height="100">
+            <h4 class="display-4">{{user.name1}} {{user.name2}} {{user.lastName1}}</h4>
+            <hr class="my-4">
+            <p>Cédula: {{user.idNumber}}</p>
+            <p>Correo electrónico: {{user.email}}</p>
+            <p>Numero telefónico: {{user.phone}}</p>
+            <hr class="my-4">
+            <p class="lead">
+                <button class="btn btn-lg logOut btnModify" ng-click="vm.modify(user)" ng-hide="vm.userAuth == 'administrador@hoteleria.cr'">Modificar Información</button>
+            </p>
+        </div>
+    </div>
+</div>

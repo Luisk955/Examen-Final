@@ -62,7 +62,7 @@
       swal("Edición exitosa", "Usuario modificado correctamente", "success", {
         button: "Aceptar",
       });
-      $location.path('/listUser');
+      $location.path('/main/listUser');
 
       // let sesion = JSON.parse(sessionStorage.getItem('sesion'));
       // if(sesion.tipo == '5'){

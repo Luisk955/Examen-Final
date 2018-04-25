@@ -11,14 +11,8 @@
 
     vm.usersList = usersService.getUsersData();
 
-
-    vm.logOut = ()=>{
-      usersService.closeSession();
-      $location.path('/logIn');
-
-    }
     vm.modify = (pUser) =>{
-      $state.go('modifyUser', { tempUser: JSON.stringify(pUser) });
+      $state.go('main.modifyUser', { tempUser: JSON.stringify(pUser) });
     };
     
 
