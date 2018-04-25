@@ -41,13 +41,22 @@
         </a>
       </li>
       <li class="nav-item" ng-show="vm.userAuth != 'administrador@hoteleria.cr'">
-        <a class="nav-link text-white py-5" ui-sref="main.profileUser" href="">
+        <a class="nav-link text-white py-5" ui-sref="main.profileUser">
           <div class="d-inline">
             <i class="fas fa-user"></i>
           </div>
           <p class="d-inline">Mi perfil</p>
         </a>
       </li>
+
+      <button class="nav-item logOut">
+          <a class="nav-link text-white py-5" ng-click="vm.logOut()" ui-sref="logIn">
+            <div class="d-inline">
+              <i class="fas fa-user"></i>
+            </div>
+            <p class="d-inline">Cerrar sesión</p>
+          </a>
+        </button>
 
     </ul>
   </aside>

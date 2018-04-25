@@ -17,7 +17,7 @@
 
       if (log == true) {
         // swal("Datos correctos", "Sesion iniciada correctamente", "success");
-        $location.path('/main');
+        $location.path('/main/listHotels');
       }
       else {
         swal("Datos erroneos", "Intente nuevamente", "error");

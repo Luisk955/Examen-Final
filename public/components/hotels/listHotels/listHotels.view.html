@@ -1,15 +1,35 @@
-<div ng-repeat="hotel in vm.hotelsList">
-  <h1>{{hotel.name}}</h1>
-  <img src="{{hotel.photo}}" width="60" height="60">
-  <p>{{hotel.getLocation()}}</p>
-  <button class="btn " type="button" ng-click="vm.modify(hotel)">
-    <i class="far fa-edit"></i>
-  </button>
-  <ng-map id="map" center="{{hotel.latitude}}, {{hotel.longitude}}" styles="width: 50%; height: 20em;">
-    <marker position="{{hotel.latitude}}, {{hotel.longitude}}"></marker>
-  </ng-map>
+<div class="jumbotron" ng-repeat="hotel in vm.hotelsList">
+      <h1 class="display-4">{{hotel.name}}</h1>
+      <hr class="my-4">
+      <div class="row">
+        <div class="col-md-6">
+          <ng-map id="map" center="{{hotel.latitude}}, {{hotel.longitude}}" styles="width: 50%; height: 20em;">
+            <marker position="{{hotel.latitude}}, {{hotel.longitude}}"></marker>
+          </ng-map>
+        </div>
+        <div class="col-md-6">
+          <img src="{{hotel.photo}}" width="450" height="300" class="image-responsive">
+        </div>
+      </div>
+      <hr class="my-4">
+      <p>Hotel ubicado en {{hotel.servicePhone}}, {{hotel.canton}}, {{hotel.district}}.</p>
+      <p>Dirección exacta: {{hotel.exactDirection}}.</p>
+      <hr class="my-4">
+      <div class="row">
+        <div class="col-md-6">
+          <h3>Servicio</h3>
+          <p>Numéro telefónico: {{hotel.servicePhone}}</p>
+          <p>Correo electrónico: {{hotel.serviceEmail}}</p>
+        </div>
+        <div class="col-md-6">
+          <h3>Reservaciones</h3>
+          <p>Numéro telefónico: {{hotel.reservationPhone}}</p>
+          <p>Correo electrónico: {{hotel.reservationEmail}}</p>
+        </div>
+      </div>
+      <p class="lead"><button class="btn btn-lg logOut btnModify" ng-click="vm.modify(hotel)" ng-hide="vm.userAuth != 'administrador@hoteleria.cr'">Modificar Información</button></p>
+      <p class="lead"><button class="btn btn-lg logOut btnModify" ng-click="vm.modify(hotel)" ng-hide="vm.userAuth == 'administrador@hoteleria.cr'">Calificar hotel</button></p>
 </div>
-
 <!-- <table class="table">
   <h1 class="col-12">Hoteles</h1>
   <hr/>

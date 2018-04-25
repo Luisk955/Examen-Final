@@ -7,7 +7,7 @@ body {
 
     a{
       &:hover{
-        background: #D8F1D3;
+        background: #9EBF6D;
       }
     }
   }
@@ -18,5 +18,25 @@ body {
 
   .text-white{
     color: #fff;
+  }
+  .logOut{
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    text-align: left;
+  }
+  .btnModify{
+    background-color: #BAD696;
+    padding: 0.3em;
+    color:white;
+  }
+  .btnModify{
+    &:hover{
+      background: #9EBF6D;
+    }
   }
 }

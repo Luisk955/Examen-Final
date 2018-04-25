@@ -8,12 +8,15 @@
 
 function mainController($state, usersService, logInService){
   let vm = this;    
-  const userAuth = usersService.getAuthUser();
-vm.userAuth = userAuth;
-  console.log(userAuth);    
+  vm.userAuth = usersService.getAuthUser();
 
-      if (userAuth == undefined) {
+  console.log(vm.userAuth);    
+
+      if (vm.userAuth == undefined) {
           $state.go('logIn');
+      }
+      vm.logOut = () =>{
+        logInService.logOut();
       }
   }
 })();
