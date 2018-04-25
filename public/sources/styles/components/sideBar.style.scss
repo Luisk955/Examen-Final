@@ -1,19 +1,19 @@
 // Estilos generales
 body {
-  background: #fff;
+  background: #F5F5F5;
 
   aside{
     height: 100vh;
 
     a{
       &:hover{
-        background: #9EBF6D;
+        background: #AACD7D;
       }
     }
   }
 
   .greenBg{
-    background: #BAD696;
+    background: #9EBF6D;
   }
 
   .text-white{
@@ -30,13 +30,13 @@ body {
     text-align: left;
   }
   .btnModify{
-    background-color: #BAD696;
+    background-color: #9EBF6D;
     padding: 0.3em;
     color:white;
   }
   .btnModify{
     &:hover{
-      background: #9EBF6D;
+      background: #BAD696;
     }
   }
 }
