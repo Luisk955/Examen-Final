@@ -3,7 +3,7 @@
 
     <div class="form-group">
       <label for="">Seleccione la ubicación del hotel</label>
-      <ng-map class="map-responsive" id="map" zoom="12" center="current-location" styles="width: 50%; height: 20em;">
+      <ng-map class="map-responsive" id="map" zoom="12" center="current-location" class="mapHotReg">
         <marker position="current-location" draggable="true" on-dragend="vm.getCurrentLocation($event)" coords="marker.coords" options="marker.options"></marker>
       </ng-map>
     </div>
@@ -74,7 +74,7 @@
       <input type="file" img-upload class="form-control" ng-model="vm.modifyHotel.photo">
     </div>
     <div class="form-group">
-      <button type="sumbmit" class="btn btn-default">Registrar</button>
+      <button type="sumbmit" class="btn btnReg">Registrar</button>
     </div>
   </form>
 </div>

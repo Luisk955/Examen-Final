@@ -14,6 +14,7 @@ body {
 
   .greenBg{
     background: #9EBF6D;
+    
   }
 
   .text-white{
@@ -33,10 +34,25 @@ body {
     background-color: #9EBF6D;
     padding: 0.3em;
     color:white;
-  }
-  .btnModify{
     &:hover{
       background: #BAD696;
     }
   }
+  .btnReg{
+    padding-left: 0.8em;
+    padding-right: 0.8em;
+    background-color: #9EBF6D;
+    color:white;
+    &:hover{
+      background: #BAD696;
+    }
+  }
+  .mapHotReg{
+    width: 100%; 
+    height: 20em;
+  }
+}
+
+.btnReg{
+  padding: 0.6em;
 }
