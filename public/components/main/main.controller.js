@@ -17,6 +17,8 @@ function mainController($state, usersService, logInService){
       }
       vm.logOut = () =>{
         logInService.logOut();
+        $state.go('logIn');
+        location.reload();
       }
   }
 })();

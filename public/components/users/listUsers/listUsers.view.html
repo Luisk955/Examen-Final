@@ -14,6 +14,7 @@
             <p>Cédula: {{user.idNumber}}</p>
             <p>Correo electrónico: {{user.email}}</p>
             <p>Numero telefónico: {{user.phone}}</p>
+            <p>Fecha de nacimiento: {{user.birthDate | date}}</p>
             <hr class="my-4">
             <p class="lead">
                 <button class="btn btn-lg logOut btnModify" ng-click="vm.modify(user)" ng-hide="vm.userAuth == 'administrador@hoteleria.cr'">Modificar Información</button>

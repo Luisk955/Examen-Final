@@ -1,5 +1,6 @@
 <div ng-include="'./components/includes/navbar.html'"></div>
-<div class="container pt-5">
+
+<div  id="logIn" class="container pt-5">
   <form class="form" ng-submit="vm.logIn(vm.user)">
     <div class="form-group col-6">
       <input type="text" placeholder="Correo electrónico" class="form-control" ng-model="vm.user.email">
@@ -9,7 +10,7 @@
     </div>
     <div class="form-group col-6">
       <button type="submit" class="btn btnReg">Iniciar sesión</button>
-      <p class="message">¿No tiene cuenta?
+      <p class="message  pt-3">¿No tiene cuenta?
         <a ui-sref="registerUser">Crear cuenta</a>
       </p>
     </div>

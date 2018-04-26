@@ -1,5 +1,5 @@
 <main id="navBar">
-  <nav class="navbar navbar-expand-lg navbar-light greenBg">
+  <nav class="navbar navbar-expand-lg navbar-light greenBg fixed-top">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
       aria-label="Toggle navigation">
@@ -22,8 +22,9 @@
         <li class="nav-item active">
           <a class="nav-link" ui-sref="main.listHotels">Hoteles</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" ng-click="vm.logOut()" ui-sref="logIn">Cerrar sesión</a>
+        <li class="nav-item logOut">
+            <a class="nav-link" data-toggle="modal" data-target="#exampleModal" >Cerrar sesión</a>
+            
           </li>
         <!-- <li class="nav-item">
           <a class="nav-link" ng-click="vm.logOut()">Cerrar sesión</a>
@@ -32,3 +33,27 @@
     </div>
   </nav>
 </main>
+
+  <!-- Modal -->
+
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Cerrar sesión</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          ¿Está seguro que desea cerrar sesión?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary greenBg modNav" ng-click="vm.logOut()">Cerrar sesión</button>
+        </div>
+      </div>
+    </div>
+  </div>

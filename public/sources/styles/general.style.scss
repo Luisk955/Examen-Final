@@ -1,6 +1,6 @@
 // Estilos generales
 body {
-  background: #F5F5F5;
+  background: #fff; 
 
   aside{
     height: 100vh;
@@ -15,6 +15,17 @@ body {
   .greenBg{
     background: #9EBF6D;
     
+  }
+  .modNav{
+    border: none;
+
+    &:hover{
+      background: #BAD696;
+    }
+
+  }
+  .jumbotron{
+    transition: border 0.2s ease-in-out;
   }
 
   .text-white{
@@ -37,6 +48,7 @@ body {
     &:hover{
       background: #BAD696;
     }
+    
   }
   .btnReg{
     padding-left: 0.8em;
@@ -53,6 +65,14 @@ body {
   }
 }
 
+
 .btnReg{
   padding: 0.6em;
 }
+
+#logIn{
+  a{
+    color: #9EBF6D;
+  }
+}
+
