@@ -15,6 +15,9 @@ module.exports.register = (req, res) => {
     reservationEmail            :  req.body.reservationEmail,
     photo            :  req.body.photo,
     state: req.body.state,
+    rating: req.body.rating,
+    ratingQuant: req.body.ratingQuant,
+    
   });
 
   newHotel.save((err) => {
@@ -38,6 +41,7 @@ module.exports.update = (req,res) => {
       res.json({success:false, msg: 'No se ha actualizado.' + handleError(err)});
     } else{
       res.json({success:true,msg:'Se ha actualizado correctamente.' + res});
+      console.log(req.body);
     }
   });
 };

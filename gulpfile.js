@@ -37,37 +37,37 @@ gulp.task('to-do', () => {
 
 gulp.task('dependencies', () => {
   gulp.src([
-      './node_modules/angular/angular.min.js'
-    ])
+    './node_modules/angular/angular.min.js'
+  ])
     .pipe(gulp.dest('./public/lib/angular'));
 
   gulp.src([
-      './node_modules/@uirouter/angularjs/release/angular-ui-router.min.js',
-      './node_modules/oclazyload/dist/ocLazyLoad.min.js',
-      './node_modules/ui-router-page-title/page-title.min.js',
-      './node_modules/payform/dist/payform.js'
+    './node_modules/@uirouter/angularjs/release/angular-ui-router.min.js',
+    './node_modules/oclazyload/dist/ocLazyLoad.min.js',
+    './node_modules/ui-router-page-title/page-title.min.js',
+    './node_modules/payform/dist/payform.js'
 
 
-    ])
+  ])
     .pipe(gulp.dest('./public/lib/angular/routing'));
 
   gulp.src([
-      './node_modules/bootstrap/dist/js/bootstrap.min.js',
-      './node_modules/bootstrap/dist/css/bootstrap.min.css',
-      './node_modules/jquery/dist/jquery.min.js',
-      './node_modules/popper.js/dist/umd/popper.min.js'
-    ])
+    './node_modules/bootstrap/dist/js/bootstrap.min.js',
+    './node_modules/bootstrap/dist/css/bootstrap.min.css',
+    './node_modules/jquery/dist/jquery.min.js',
+    './node_modules/popper.js/dist/umd/popper.min.js'
+  ])
     .pipe(gulp.dest('./public/lib/bootstrap'));
 
   gulp.src([
-      './node_modules/sweetalert/dist/sweetalert.min.js'
-    ])
+    './node_modules/sweetalert/dist/sweetalert.min.js'
+  ])
     .pipe(gulp.dest('./public/lib/sweetalert'));
 
 
-    gulp.src([
-      './node_modules/payform/dist/jquery.payform.min.js'
-    ])
+  gulp.src([
+    './node_modules/payform/dist/jquery.payform.min.js'
+  ])
     .pipe(gulp.dest('./public/lib/payform'));
 
 
@@ -81,6 +81,12 @@ gulp.task('dependencies', () => {
     './node_modules/ngmap/build/scripts/ng-map.min.js'
   ])
     .pipe(gulp.dest('./public/lib/ng-map'));
+
+  gulp.src([
+    './node_modules/angular-jk-rating-stars/dist/jk-rating-stars.min.css',
+    './node_modules/angular-jk-rating-stars/dist/jk-rating-stars.min.js'
+  ])
+    .pipe(gulp.dest('./public/lib/rating'));
 });
 
 gulp.task('reload', () => {

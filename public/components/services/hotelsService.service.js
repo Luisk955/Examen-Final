@@ -40,6 +40,8 @@
           reservationEmail: data.reservationEmail,
           photo: data.photo,
           state: data.state,
+          rating: data.rating,
+          ratingQuant: data.ratingQuant,
         },
       });
 
@@ -74,6 +76,8 @@
           let hotelTemp = Object.assign(new Hotel(), objHotel);
 
           hotelTemp.setId(objHotel._id);
+          hotelTemp.rating = Number(objHotel.rating);
+          hotelTemp.ratingQuant = Number(objHotel.ratingQuant);
           hotelTemp.changeState(objHotel.state);
           console.log(hotelTemp);
           hotelsList.push(hotelTemp);
@@ -112,6 +116,8 @@
           'reservationEmail': data.reservationEmail,
           'photo': data.photo,
           'state': data.state,
+          'rating': data.rating,
+          'ratingQuant': data.ratingQuant,         
         }
       });
 

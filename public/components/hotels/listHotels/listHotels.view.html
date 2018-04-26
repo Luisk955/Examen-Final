@@ -6,8 +6,10 @@
   </form>
 
 <div class="jumbotron fixImage" ng-repeat="hotel in vm.hotelsList | filter:searchHotel">
-      <h1 class="display-4">{{hotel.name}}</h1>
-      <hr class="my-4">
+      <h1 class="display-4">{{hotel.name}}</h1> 
+      <hr class="my-4"> 
+      <div class="container"><jk-rating-stars max-rating="5" rating="3">
+        </jk-rating-stars></div>
       <div class="row">
         <div class="col-md-6">
           <ng-map id="map" center="{{hotel.latitude}}, {{hotel.longitude}}"  class="mapHotReg">
@@ -36,7 +38,42 @@
       </div>
       <p class="lead"><button class="btn btn-lg btnModify" ng-click="vm.modify(hotel)" ng-hide="vm.userAuth != 'administrador@hoteleria.cr'">Modificar Información</button></p>
       <p class="lead"><button class="btn btn-lg btnModify" ng-click="vm.changeState('inactivo', hotel)" ng-hide="vm.userAuth != 'administrador@hoteleria.cr'">Desactivar</button></p>
-      <p class="lead"><button class="btn btn-lg btnModify" ng-hide="vm.userAuth == 'administrador@hoteleria.cr'">Calificar hotel</button></p>
+      <p class="lead"><button class="btn btn-lg btnModify" ng-hide="vm.userAuth == 'administrador@hoteleria.cr'" data-toggle="modal" data-target="#modalRate" ng-click="vm.setHotelCalif(hotel)">Calificar hotel</button></p>
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalRate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body container">
+            <h3>Cocina</h3>
+            <jk-rating-stars max-rating="5" rating="3" on-rating="vm.onItemRatingCocina(rating)">
+            </jk-rating-stars>
+            <h3>Calidad de Servicio</h3>
+            <jk-rating-stars max-rating="5" rating="3" on-rating="vm.onItemRatingCalidadServicio(rating)">
+            </jk-rating-stars>
+            <h3>Habitaciones</h3>
+            <jk-rating-stars max-rating="5" rating="3" on-rating="vm.onItemRatingHabitaciones(rating)">
+            </jk-rating-stars>
+            <h3>Infrastructura</h3>
+            <jk-rating-stars max-rating="5" rating="3" on-rating="vm.onItemRatingInfrastructura(rating)">
+            </jk-rating-stars>
+            <h3>Limpieza</h3>
+            <jk-rating-stars max-rating="5" rating="3" on-rating="vm.onItemRatingLimpieza(rating)">
+            </jk-rating-stars>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" ng-click="vm.addRate()">Agregar rating</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 

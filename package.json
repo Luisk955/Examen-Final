@@ -27,6 +27,7 @@
   "dependencies": {
     "@uirouter/angularjs": "^1.0.15",
     "angular": "^1.6.9",
+    "angular-jk-rating-stars": "^1.0.8",
     "angular-messages": "^1.6.9",
     "angular-scroll": "^1.0.2",
     "angular-stripe": "^5.0.0",
