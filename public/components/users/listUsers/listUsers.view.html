@@ -1,9 +1,9 @@
-<form>
+<form class="">
     <div class=" col-12 col-md-4 mt-4 mb-4">
-        <h3>Buscar usuario</h3>
-        <input type="text" class="form-control" ng-model="searchUser" placeholder="Ingrese lo que desea buscar">
+      <h3>Buscar usuario</h3>
+      <input type="text" class="form-control" ng-model="searchHotel" placeholder="Búsqueda de usuarios">
     </div>
-</form>
+  </form>
 
 <div class="row">
     <div class="col-md-6" ng-repeat="user in vm.usersList | filter:searchUser" ng-if="user.type === '1'">
@@ -18,6 +18,9 @@
             <hr class="my-4">
             <p class="lead">
                 <button class="btn btn-lg logOut btnModify" ng-click="vm.modify(user)" ng-hide="vm.userAuth == 'administrador@hoteleria.cr'">Modificar Información</button>
+            </p>
+            <p class="lead">
+                <button class="btn btn-lg logOut btnModify" ng-click="vm.changeState('inactivo', user)" ng-hide="vm.userAuth == 'administrador@hoteleria.cr'">Desactivar</button>
             </p>
         </div>
     </div>

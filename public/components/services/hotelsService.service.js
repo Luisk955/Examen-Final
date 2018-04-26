@@ -39,6 +39,7 @@
           reservationPhone: data.reservationPhone,
           reservationEmail: data.reservationEmail,
           photo: data.photo,
+          state: data.state,
         },
       });
 
@@ -73,6 +74,7 @@
           let hotelTemp = Object.assign(new Hotel(), objHotel);
 
           hotelTemp.setId(objHotel._id);
+          hotelTemp.changeState(objHotel.state);
           console.log(hotelTemp);
           hotelsList.push(hotelTemp);
         });
@@ -109,6 +111,7 @@
           'reservationPhone': data.reservationPhone,
           'reservationEmail': data.reservationEmail,
           'photo': data.photo,
+          'state': data.state,
         }
       });
 

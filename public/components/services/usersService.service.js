@@ -44,6 +44,7 @@
           phone: data.phone,
           password: data.password,
           type: data.type,
+          state: data.state,
         },
       });
 
@@ -78,7 +79,9 @@
         users.forEach(objUser => {
           let date = new Date(objUser.birthDate);
           objUser.birthDate = date;
+
           let userTemp = Object.assign(new User(), objUser);
+          userTemp.changeState(objUser.state);
 
           console.log(userTemp);
           usersList.push(userTemp);
@@ -113,6 +116,7 @@
           'phone': data.phone,
           'password': data.password,
           'type': data.type,
+          'state': data.state,
         }
       });
 

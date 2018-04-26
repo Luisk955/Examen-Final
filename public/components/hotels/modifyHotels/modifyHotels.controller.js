@@ -24,47 +24,44 @@
     //   }
     // }
     // else {
-      let hotelToModify = JSON.parse($stateParams.tempHotel);
-      vm.objNewHotel = Object.assign(new Hotel(), hotelToModify);
-      vm.objNewHotel.setId(hotelToModify._id);
+    let hotelToModify = JSON.parse($stateParams.tempHotel);
+    vm.objNewHotel = Object.assign(new Hotel(), hotelToModify);
+    vm.objNewHotel.setId(hotelToModify._id);
     // }
 
-      vm.modifyHotel.name = vm.objNewHotel.name;
-      vm.modifyHotel.latitude = vm.objNewHotel.latitude;
-      vm.modifyHotel.longitude = vm.objNewHotel.longitude;
-      vm.modifyHotel.province = vm.objNewHotel.province;
-      vm.modifyHotel.canton = vm.objNewHotel.canton;
-      vm.modifyHotel.district = vm.objNewHotel.district;
-      vm.modifyHotel.exactDirection = vm.objNewHotel.exactDirection;
-      vm.modifyHotel.servicePhone = vm.objNewHotel.servicePhone;
-      vm.modifyHotel.serviceEmail = vm.objNewHotel.serviceEmail;
-      vm.modifyHotel.reservationPhone = vm.objNewHotel.reservationPhone;
-      vm.modifyHotel.reservationEmail = vm.objNewHotel.reservationEmail;
-      vm.modifyHotel.photo = vm.objNewHotel.photo;
-    
+    vm.modifyHotel.name = vm.objNewHotel.name;
+    vm.modifyHotel.latitude = vm.objNewHotel.latitude;
+    vm.modifyHotel.longitude = vm.objNewHotel.longitude;
+    vm.modifyHotel.province = vm.objNewHotel.province;
+    vm.modifyHotel.canton = vm.objNewHotel.canton;
+    vm.modifyHotel.district = vm.objNewHotel.district;
+    vm.modifyHotel.exactDirection = vm.objNewHotel.exactDirection;
+    vm.modifyHotel.servicePhone = vm.objNewHotel.servicePhone;
+    vm.modifyHotel.serviceEmail = vm.objNewHotel.serviceEmail;
+    vm.modifyHotel.reservationPhone = vm.objNewHotel.reservationPhone;
+    vm.modifyHotel.reservationEmail = vm.objNewHotel.reservationEmail;
+    vm.modifyHotel.photo = vm.objNewHotel.photo;
 
-      vm.cloudObj = imageService.getConfiguration();
 
-      vm.preEditHotel = (pNewHotel) => {
-        vm.cloudObj.data.file = pNewHotel.photo[0];
-        Upload.upload(vm.cloudObj).success((data) =>{
-          vm.modifHotel(pNewHotel, data.url);
-       });
-      }
+    vm.cloudObj = imageService.getConfiguration();
 
-      vm.pos = [JSON.stringify(vm.modifyHotel.latitude), JSON.stringify(vm.modifyHotel.latitude)];
-      vm.getCurrentLocation = ($event) => {
-        let postion = [$event.latLng.lat(), $event.latLng.lng()];
-        console.log(postion);
-        vm.current = postion;
-      }
+    vm.preEditHotel = (pNewHotel) => {
+      vm.cloudObj.data.file = pNewHotel.photo[0];
+      Upload.upload(vm.cloudObj).success((data) => {
+        vm.modifHotel(pNewHotel, data.url);
+      });
+    }
+
+    vm.getCurrentLocation = ($event) => {
+      let postion = [$event.latLng.lat(), $event.latLng.lng()];
+      console.log(postion);
+      vm.current = postion;
+    }
 
     vm.modifHotel = (pHotel, url) => {
       let hotelsList = hotelsService.getHotelsData();
-      
-        pHotel.photo = url;
 
-      
+      pHotel.photo = url;
       pHotel.latitude = vm.current[0];
       pHotel.longitude = vm.current[1];
 
@@ -82,7 +79,7 @@
           objHotel.reservationPhone = pHotel.reservationPhone;
           objHotel.reservationEmail = pHotel.reservationEmail;
           objHotel.photo = pHotel.photo;
-    
+
 
           hotelsService.updateHotelData(objHotel);
 
@@ -91,6 +88,7 @@
       swal("Edición exitosa", "Hotel modificado correctamente", "success", {
         button: "Aceptar",
       });
+      $location.path('main/listHotels');
 
       // let sesion = JSON.parse(sessionStorage.getItem('sesion'));
       // if(sesion.tipo == '5'){
@@ -99,7 +97,7 @@
       // else{
       //   $state.go('main.dashboard');
       // }
-      
+
     }
   }
 

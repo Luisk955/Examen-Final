@@ -65,13 +65,6 @@
      });
     }
 
-    // NgMap.getMap("map").then((map) => {
-    //   console.log(map.getCenter());
-    //   console.log('markers', map.markers);
-    //   console.log('shapes', map.shapes);
-    //   vm.map = map;
-    // });
-
     vm.getCurrentLocation = ($event) => {
       let postion = [$event.latLng.lat(), $event.latLng.lng()];
       console.log(postion);
@@ -80,6 +73,7 @@
     
     vm.registerHotel = (pNewHotel, imgUrl) => {
       pNewHotel.photo = imgUrl;
+      pNewHotel.state = 'activo';
       pNewHotel.latitude = vm.current[0];
       pNewHotel.longitude = vm.current[1];
 
@@ -93,6 +87,5 @@
         $location.path('/main.listHotels');
       }
     }
-
   }
 })();

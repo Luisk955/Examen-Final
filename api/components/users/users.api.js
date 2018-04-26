@@ -12,6 +12,7 @@ module.exports.register = (req, res) => {
     phone              :  req.body.phone,
     password            :  req.body.password,
     type            :  req.body.type,
+    state : req.body.state,
   });
 
   newUser.save((err) => {

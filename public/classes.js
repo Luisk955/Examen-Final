@@ -11,9 +11,13 @@ class User {
     this.phone = pPhone;
     this.password = pPassword;
     this.type = pType;
+    this.state = '';
   }
   setId(pId) {
     this._id = pId;
+  }
+  changeState(pState) {
+    this.state = pState;
   }
 }
 
@@ -32,9 +36,12 @@ class Hotel {
     this.reservationPhone = pReservationPhone;
     this.reservationEmail = pReservationEmail;
     this.photo = pPhoto;
-
+    this.state = '';
   }
-
+  
+  changeState(pState) {
+    this.state = pState;
+  }
   setId(pId) {
     this._id = pId;
   }

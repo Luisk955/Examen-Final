@@ -1,5 +1,5 @@
 <main id="navBar">
-  <nav class="navbar navbar-expand-lg navbar-light greenBg fixed-top">
+  <nav class="navbar sticky-top navbar-expand-lg navbar-light greenBg">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
       aria-label="Toggle navigation">
@@ -13,19 +13,36 @@
         <li class="nav-item">
           <a class="nav-link" ui-sref="main.registerUser" ng-show="vm.userAuth == 'administrador@hoteleria.cr'">Registrar cliente</a>
         </li>
+        <li class="nav-item dropdown " ng-show="vm.userAuth == 'administrador@hoteleria.cr'">
+            
+          <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuarios</a>
+          
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" ui-sref="main.listUser">Usuarios activos</a>
+            <a class="dropdown-item" href="">Usuarios desactivados</a>
+          </div>
+        </li>
         <li class="nav-item">
           <a class="nav-link" ui-sref="main.registerHotel" ng-show="vm.userAuth == 'administrador@hoteleria.cr'">Registrar hotel</a>
         </li>
-        <li class="nav-item" ng-show="vm.userAuth == 'administrador@hoteleria.cr'">
-          <a class="nav-link" ui-sref="main.listUser">Usuarios</a>
+        <li class="nav-item dropdown " ng-show="vm.userAuth == 'administrador@hoteleria.cr'">
+            
+          <a class="nav-link dropdown-toggle" href="" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hoteles</a>
+          
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" ui-sref="main.listHotels">Hoteles activos</a>
+            <a class="dropdown-item" href="">Hoteles desactivados</a>
+          </div>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item active" ng-hide="vm.userAuth == 'administrador@hoteleria.cr'">
           <a class="nav-link" ui-sref="main.listHotels">Hoteles</a>
         </li>
         <li class="nav-item logOut">
             <a class="nav-link" data-toggle="modal" data-target="#exampleModal" >Cerrar sesión</a>
             
           </li>
+
+          
         <!-- <li class="nav-item">
           <a class="nav-link" ng-click="vm.logOut()">Cerrar sesión</a>
         </li> -->

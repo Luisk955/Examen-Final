@@ -1,7 +1,7 @@
 <form class="">
     <div class=" col-12 col-md-4 mt-4 mb-4">
       <h3>Buscar hotel</h3>
-      <input type="text" class="form-control" ng-model="searchHotel" placeholder="Ingrese lo que desea buscar">
+      <input type="text" class="form-control" ng-model="searchHotel" placeholder="Búsqueda de hoteles">
     </div>
   </form>
 
@@ -35,6 +35,7 @@
         </div>
       </div>
       <p class="lead"><button class="btn btn-lg btnModify" ng-click="vm.modify(hotel)" ng-hide="vm.userAuth != 'administrador@hoteleria.cr'">Modificar Información</button></p>
+      <p class="lead"><button class="btn btn-lg btnModify" ng-click="vm.changeState('inactivo', hotel)" ng-hide="vm.userAuth != 'administrador@hoteleria.cr'">Desactivar</button></p>
       <p class="lead"><button class="btn btn-lg btnModify" ng-hide="vm.userAuth == 'administrador@hoteleria.cr'">Calificar hotel</button></p>
 </div>
 

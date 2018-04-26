@@ -1,9 +1,9 @@
 <div ng-include="'./components/includes/navbar.html'" ng-hide="vm.userAuth != undefined"></div>
 
-<div class="container pt-5">
-  <form class="form" ng-submit="vm.calculateAge(vm.newClient.birthDate); vm.registerClient(vm.newClient);">
-    <h2 ng-hide="vm.userAuth != undefined">Ingrese sus datos</h2>
-    <h2 ng-show="vm.userAuth != undefined">Ingrese los datos del cliente</h2>
+<div class="container">
+  <form class="form" ng-submit="vm.registerClient(vm.newClient)">
+    <h2 ng-hide="vm.userAuth != undefined" class="pt-5">Ingrese sus datos</h2>
+    <h2 ng-show="vm.userAuth != undefined" class="pt-5">Ingrese los datos del cliente</h2>
     <hr>
 
     <div class="row">
@@ -68,7 +68,7 @@
       </div>
       <div class="form-group col-6">
         <label for="">Confirme su contraseña</label>
-        <input type="password" class="form-control">
+        <input type="password" class="form-control" ng-model="vm.confirmPassword">
       </div>
     </div>
     <div class="form-group">

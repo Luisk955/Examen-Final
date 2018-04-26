@@ -14,6 +14,7 @@ module.exports.register = (req, res) => {
     reservationPhone            :  req.body.reservationPhone,
     reservationEmail            :  req.body.reservationEmail,
     photo            :  req.body.photo,
+    state: req.body.state,
   });
 
   newHotel.save((err) => {

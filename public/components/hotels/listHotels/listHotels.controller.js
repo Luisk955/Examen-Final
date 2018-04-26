@@ -16,20 +16,17 @@
       $state.go('main.modifyHotel', { tempHotel: JSON.stringify(pHotel) });
     };
     
-
-        // vm.cambiarEstado =(pEstado, pUsuario)=>{
-    //   let listaUsuarios = servicioUsuarios.getUsuarios();
-    //   let usuario = {};
-    //   for (let i = 0; i < listaUsuarios.length; i++) {
-    //     if(listaUsuarios[i].correo == pUsuario.correo){
-    //       listaUsuarios[i].cambiarEstado(pEstado);
-    //       usuario = listaUsuarios[i];
-    //     }
-    //   }
-    //   servicioUsuarios.actualizarUsuario(usuario);
-    //   vm.listaClientes = listarClientes();
-    // }
-
- 
+    vm.changeState = (pState, pHotel) => {
+      let hotelsList = hotelsService.getHotelsData();
+      let user = {};
+      for (let i = 0; i < hotelsList.length; i++) {
+        if (hotelsList[i].name == pHotel.name) {
+          hotelsList[i].changeState(pState);
+          
+          hotelsService.updateHotelData(hotelsList[i]);
+        }
+      };
+      location.reload();
+    };
   }
 })();

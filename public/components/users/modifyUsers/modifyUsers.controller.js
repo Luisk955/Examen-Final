@@ -38,9 +38,6 @@
       vm.modifyUser.birthDate = new Date(vm.objNewUser.birthDate);
       vm.modifyUser.phone = vm.objNewUser.phone;
     
-
-    
-
     vm.modifUser = (pUser) => {
       let usersList = usersService.getUsersData();
 

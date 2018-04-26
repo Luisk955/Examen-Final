@@ -16,19 +16,17 @@
     };
     
 
-        // vm.cambiarEstado =(pEstado, pUsuario)=>{
-    //   let listaUsuarios = servicioUsuarios.getUsuarios();
-    //   let usuario = {};
-    //   for (let i = 0; i < listaUsuarios.length; i++) {
-    //     if(listaUsuarios[i].correo == pUsuario.correo){
-    //       listaUsuarios[i].cambiarEstado(pEstado);
-    //       usuario = listaUsuarios[i];
-    //     }
-    //   }
-    //   servicioUsuarios.actualizarUsuario(usuario);
-    //   vm.listaClientes = listarClientes();
-    // }
-
- 
+    vm.changeState = (pState, pUser) => {
+      let usersList = usersService.getUsersData();
+      let user = {};
+      for (let i = 0; i < usersList.length; i++) {
+        if (usersList[i].email == pUser.email) {
+          usersList[i].changeState(pState);
+          
+          usersService.updateUserData(usersList[i]);
+        }
+      };
+      location.reload();
+    };
   }
 })();
