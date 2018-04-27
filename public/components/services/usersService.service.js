@@ -16,7 +16,8 @@
       updateUserData: _updateUserData,
       setSession: _setSession,
       closeSession: _closeSession,
-      getAuthUser:_getAuthUser
+      getAuthUser:_getAuthUser,
+      getSession:_getSession
     }
     return publicAPI
 
@@ -161,16 +162,30 @@
 
     function _getAuthUser() {
       let activeSession = _getSession(),
-          userData;
+        userData;
 
       if (!activeSession) {
-          userData = undefined;
+        userData = undefined;
       } else {
-          userData = activeSession.email;
+        userData = getActiveUserData(activeSession.email);
       }
 
       return userData;
-  }
+    }
+
+
+    function getActiveUserData(pEmail) {
+      let usersList = _getUsersData(),
+        userData;
+
+      for (let i = 0; i < usersList.length; i++) {
+        if (usersList[i].email == pEmail) {
+          userData = usersList[i];
+        }
+      };
+
+      return userData;
+    }
 
 
 

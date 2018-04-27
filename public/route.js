@@ -114,6 +114,24 @@
         controller: 'modifyUserController',
         controllerAs: 'vm'
       })
+      
+      .state('main.userProfile', {
+        url: '/userProfile',
+        templateUrl: './components/users/userProfile/userProfile.view.html',
+        data: {
+          pageTitle: 'Perfil de usuario'
+        },
+        params: {
+          tempUser: ''
+        },
+        resolve: {
+          load: ['$ocLazyLoad', ($ocLazyLoad) => {
+            return $ocLazyLoad.load('./components/users/userProfile/userProfile.controller.js')
+          }]
+        },
+        controller: 'userProfileController',
+        controllerAs: 'vm'
+      })
 
       .state('main.registerHotel', {
         url: '/registerHotel',

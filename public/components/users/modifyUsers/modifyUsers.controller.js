@@ -59,8 +59,12 @@
       swal("Edición exitosa", "Usuario modificado correctamente", "success", {
         button: "Aceptar",
       });
-      $location.path('/main/listUser');
-
+      if(vm.objNewUser.type == '2'){
+        $location.path('/main/listUser');
+      }
+      else{
+        $location.path('/main/userProfile');
+      }
       // let sesion = JSON.parse(sessionStorage.getItem('sesion'));
       // if(sesion.tipo == '5'){
       //   $state.go('main.listarCliente');

@@ -36,9 +36,9 @@
           <p>Correo electrónico: {{hotel.reservationEmail}}</p>
         </div>
       </div>
-      <p class="lead"><button class="btn btn-lg btnModify" ng-click="vm.modify(hotel)" ng-hide="vm.userAuth != 'administrador@hoteleria.cr'">Modificar Información</button></p>
-      <p class="lead"><button class="btn btn-lg btnModify" ng-click="vm.changeState('inactivo', hotel)" ng-hide="vm.userAuth != 'administrador@hoteleria.cr'">Desactivar</button></p>
-      <p class="lead"><button class="btn btn-lg btnModify" ng-hide="vm.userAuth == 'administrador@hoteleria.cr'" data-toggle="modal" data-target="#modalRate" ng-click="vm.setHotelCalif(hotel)">Calificar hotel</button></p>
+      <p class="lead"><button class="btn btn-lg btnModify" ng-click="vm.modify(hotel)" ng-hide="vm.userAuth.type != 2">Modificar Información</button></p>
+      <p class="lead"><button class="btn btn-lg btnModify" ng-click="vm.changeState('inactivo', hotel)" ng-hide="vm.userAuth.type != 2">Desactivar</button></p>
+      <p class="lead"><button class="btn btn-lg btnModify" ng-hide="vm.userAuth.type == 2" data-toggle="modal" data-target="#modalRate" ng-click="vm.setHotelCalif(hotel)">Calificar hotel</button></p>
 </div>
 
 <!-- Modal -->

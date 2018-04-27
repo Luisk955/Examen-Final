@@ -17,10 +17,10 @@
             <p>Fecha de nacimiento: {{user.birthDate | date}}</p>
             <hr class="my-4">
             <p class="lead">
-                <button class="btn btn-lg logOut btnModify" ng-click="vm.modify(user)" ng-hide="vm.userAuth == 'administrador@hoteleria.cr'">Modificar Información</button>
+                <button class="btn btn-lg logOut btnModify" ng-click="vm.modify(user)">Modificar Información</button>
             </p>
             <p class="lead">
-                <button class="btn btn-lg logOut btnModify" ng-click="vm.changeState('inactivo', user)" ng-hide="vm.userAuth == 'administrador@hoteleria.cr'">Desactivar</button>
+                <button class="btn btn-lg logOut btnModify" ng-click="vm.changeState('inactivo', user)">Desactivar</button>
             </p>
         </div>
     </div>

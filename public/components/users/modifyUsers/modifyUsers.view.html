@@ -1,39 +1,63 @@
-<div class="container">
+<div class="container pt-3">
   <form class="form" ng-submit="vm.modifUser(vm.modifyUser)">
-    <div class="form-group">
+    
+    <div class="row">
+
+    <div class="form-group col-md-6">
       <label for="">Cédula</label>
       <input type="text" class="form-control" ng-model="vm.modifyUser.idNumber">
     </div>
-    <div class="form-group">
+
+    <div class="form-group col-md-6">
       <label for="">Primer nombre</label>
       <input type="text" class="form-control" ng-model="vm.modifyUser.name1">
     </div>
-    <div class="form-group">
+
+    </div>
+
+    <div class="row">
+
+    <div class="form-group col-md-6">
       <label for="">Segundo nombre</label>
       <input type="text" class="form-control" ng-model="vm.modifyUser.name2">
     </div>
-    <div class="form-group">
+
+    <div class="form-group col-md-6">
       <label for="">Primer apellido</label>
       <input type="text" class="form-control" ng-model="vm.modifyUser.lastName1">
     </div>
-    <div class="form-group">
+
+    </div>
+
+    <div class="row">
+
+    <div class="form-group col-md-6">
       <label for="">Segundo apellido</label>
       <input type="text" class="form-control" ng-model="vm.modifyUser.lastName2">
     </div>
-    <div class="form-group">
+
+    <div class="form-group col-md-6">
       <label for="">Correo electrónico</label>
       <input type="email" class="form-control" ng-model="vm.modifyUser.email" disabled>
     </div>
-    <div class="form-group">
+
+    </div>
+    <div class="row">
+
+    <div class="form-group col-md-6">
       <label for="">Fecha de nacimiento</label>
       <input type="date" class="form-control" ng-model="vm.modifyUser.birthDate">
     </div>
-    <div class="form-group">
-      <label for="">Teléfono</label>
-      <input type="text" class="form-control" ng-model="vm.modifyUser.phone">
+    <div class="form-group col-md-6">
+        <label for="">Teléfono</label>
+        <input type="text" class="form-control" ng-model="vm.modifyUser.phone">
+      </div>
     </div>
+    
+
     <div class="form-group">
       <button type="sumbmit" class="btn btnReg">Modificar</button>
     </div>
+
   </form>
 </div>

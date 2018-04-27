@@ -1,0 +1,16 @@
+<div class="container pt-2">
+  <div class="jumbotron ">
+    <img src="../../../sources/images/user.png" class="img img-responsive img-circle" width="100" height="100">
+    <h2>{{vm.user.name1}} {{vm.user.name2}} {{vm.user.lastName1}}</h2>
+    <h4 class="display-4"></h4>
+    <hr class="my-4">
+    <p>Cédula: {{vm.user.idNumber}}</p>
+    <p>Correo electrónico: {{vm.user.email}}</p>
+    <p>Numero telefónico: {{vm.user.phone}}</p>
+    <p>Fecha de nacimiento: {{vm.user.birthDate | date}}</p>
+    <hr class="my-4">
+    <p class="lead">
+      <button class="btn btn-lg logOut btnModify" ng-click="vm.modify(vm.user)" ng-hide="vm.userAuth == 'administrador@hoteleria.cr'">Modificar Información</button>
+    </p>
+  </div>
+</div>
