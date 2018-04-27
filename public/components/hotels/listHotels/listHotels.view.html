@@ -1,82 +1,97 @@
 <form class="">
-    <div class=" col-12 col-md-4 mt-4 mb-4">
-      <h3>Buscar hotel</h3>
-      <input type="text" class="form-control" ng-model="searchHotel" placeholder="Búsqueda de hoteles">
-    </div>
-  </form>
+  <div class=" col-12 col-md-4 mt-4 mb-4">
+    <h3>Buscar hotel</h3>
+    <input type="text" class="form-control" ng-model="searchHotel" placeholder="Búsqueda de hoteles">
+  </div>
+</form>
 
 <div class="jumbotron fixImage" ng-repeat="hotel in vm.hotelsList | filter:searchHotel">
-      <h1 class="display-4">{{hotel.name}}</h1> 
-      <hr class="my-4"> 
-      <div class="container">
-        <jk-rating-stars max-rating="5" rating="vm.calcProm(hotel.rating)">
-        </jk-rating-stars>
-      </div>
-
-      <div class="row">
-        <div class="col-md-6">
-          <ng-map id="map" center="{{hotel.latitude}}, {{hotel.longitude}}"  class="mapHotReg">
-            <marker position="{{hotel.latitude}}, {{hotel.longitude}}"></marker>
-          </ng-map>
-        </div>
-        <div class="col-md-6 col-12">
-          <img src="{{hotel.photo}}" class="img img-fluid img-circle">
-        </div>
-      </div>
-      <hr class="my-4">
-      <p>Hotel ubicado en {{hotel.province}}, {{hotel.canton}}, {{hotel.district}}.</p>
-      <p>Dirección exacta: {{hotel.exactDirection}}.</p>
-      <hr class="my-4">
-      <div class="row">
-        <div class="col-md-6">
-          <h3>Servicio</h3>
-          <p>Numéro telefónico: {{hotel.servicePhone}}</p>
-          <p>Correo electrónico: {{hotel.serviceEmail}}</p>
-        </div>
-        <div class="col-md-6">
-          <h3>Reservaciones</h3>
-          <p>Numéro telefónico: {{hotel.reservationPhone}}</p>
-          <p>Correo electrónico: {{hotel.reservationEmail}}</p>
-        </div>
-      </div>
-      <p class="lead"><button class="btn btn-lg btnModify" ng-click="vm.modify(hotel)" ng-hide="vm.userAuth.type != 2">Modificar Información</button></p>
-      <p class="lead"><button class="btn btn-lg btnModify" ng-click="vm.changeState('inactivo', hotel)" ng-hide="vm.userAuth.type != 2">Desactivar</button></p>
-      <p class="lead"><button class="btn btn-lg btnModify" ng-hide="vm.userAuth.type == 2" data-toggle="modal" data-target="#modalRate" ng-click="vm.setHotelCalif(hotel)">Calificar hotel</button></p>
+  <h1 class="display-4">{{hotel.name}}</h1>
+  <jk-rating-stars rating="vm.calcProm(hotel.rating)"></jk-rating-stars>
+  <hr class="my-4">
+  <div class="row">
+    <div class="col-md-6">
+      <ng-map id="map" center="{{hotel.latitude}}, {{hotel.longitude}}" class="mapHotReg">
+        <marker position="{{hotel.latitude}}, {{hotel.longitude}}"></marker>
+      </ng-map>
+    </div>
+    <div class="col-md-6 col-12">
+      <img src="{{hotel.photo}}" class="img img-fluid img-circle">
+    </div>
+  </div>
+  <hr class="my-4">
+  <p>Hotel ubicado en {{hotel.province}}, {{hotel.canton}}, {{hotel.district}}.</p>
+  <p>Dirección exacta: {{hotel.exactDirection}}.</p>
+  <hr class="my-4">
+  <div class="row">
+    <div class="col-md-6">
+      <h3>Servicio</h3>
+      <p>Numéro telefónico: {{hotel.servicePhone}}</p>
+      <p>Correo electrónico: {{hotel.serviceEmail}}</p>
+    </div>
+    <div class="col-md-6">
+      <h3>Reservaciones</h3>
+      <p>Numéro telefónico: {{hotel.reservationPhone}}</p>
+      <p>Correo electrónico: {{hotel.reservationEmail}}</p>
+    </div>
+  </div>
+  <p class="lead">
+    <button class="btn btn-lg btnModify" ng-click="vm.modify(hotel)" ng-hide="vm.userAuth.type != 2">Modificar Información</button>
+  </p>
+  <p class="lead">
+    <button class="btn btn-lg btnModify" ng-click="vm.changeState('inactivo', hotel)" ng-hide="vm.userAuth.type != 2">Desactivar</button>
+  </p>
+  <p class="lead">
+    <button class="btn btn-lg btnModify" ng-hide="vm.userAuth.type == 2" data-toggle="modal" data-target="#modalRate" ng-click="vm.setHotelCalif(hotel)">Calificar hotel</button>
+  </p>
 </div>
 
 <!-- Modal -->
 <div class="modal fade" id="modalRate" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Calificación de hoteles</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body container">
+
+        <div class="col-md-6">
+          <h3>Cocina</h3>
+          <jk-rating-stars max-rating="5" rating="3" on-rating="vm.onItemRatingCocina(rating)">
+          </jk-rating-stars>
         </div>
-        <div class="modal-body container">
-            <h3>Cocina</h3>
-            <jk-rating-stars max-rating="5" rating="3" on-rating="vm.onItemRatingCocina(rating)">
-            </jk-rating-stars>
-            <h3>Calidad de Servicio</h3>
-            <jk-rating-stars max-rating="5" rating="3" on-rating="vm.onItemRatingCalidadServicio(rating)">
-            </jk-rating-stars>
-            <h3>Habitaciones</h3>
-            <jk-rating-stars max-rating="5" rating="3" on-rating="vm.onItemRatingHabitaciones(rating)">
-            </jk-rating-stars>
-            <h3>Infrastructura</h3>
-            <jk-rating-stars max-rating="5" rating="3" on-rating="vm.onItemRatingInfrastructura(rating)">
-            </jk-rating-stars>
-            <h3>Limpieza</h3>
-            <jk-rating-stars max-rating="5" rating="3" on-rating="vm.onItemRatingLimpieza(rating)">
-            </jk-rating-stars>
+
+        <div class="col-md-6 pt-3">
+          <h3>Servicio</h3>
+          <jk-rating-stars max-rating="5" rating="3" on-rating="vm.onItemRatingCalidadServicio(rating)">
+          </jk-rating-stars>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary" ng-click="vm.addRate()">Agregar rating</button>
+
+        <div class="col-md-6 pt-3">
+          <h3>Habitaciones</h3>
+          <jk-rating-stars max-rating="5" rating="3" on-rating="vm.onItemRatingHabitaciones(rating)">
+          </jk-rating-stars>
         </div>
+
+        <div class="col-md-6 pt-3">
+          <h3>Infrastructura</h3>
+          <jk-rating-stars max-rating="5" rating="3" on-rating="vm.onItemRatingInfrastructura(rating)">
+          </jk-rating-stars>
+        </div>
+
+        <div class="col-md-6 pt-3">
+          <h3>Limpieza</h3>
+          <jk-rating-stars max-rating="5" rating="3" on-rating="vm.onItemRatingLimpieza(rating)">
+          </jk-rating-stars>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btnModify" ng-click="vm.addRate()">Agregar rating</button>
       </div>
     </div>
   </div>
-
-
+</div>

@@ -1,24 +1,40 @@
 #landingPage {
-  
-  background-color: #AACD7D ;
+  .carousel-item {
+    height: 100vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
 
-  .bg{
-    position: relative;
-    z-index: 1;
-    height: 606px;
+  .cover_Content{
+    border: 2px solid black;
+    text-align: center;
+    margin: 0 auto;
+    padding: 8em;
+    background-color: rgba(0, 0, 0, 0.3);
   }
-  .bg:before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    width: 100%;
-    height: 606px;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: url(../../../sources/images/fondo.jpg) center center;
-    opacity: 0.8;
+  // background-color: #AACD7D ;
+
+  // .bg{
+  //   position: relative;
+  //   z-index: 1;
+  //   height: 606px;
+  // }
+  // .bg:before {
+  //   content: "";
+  //   position: absolute;
+  //   z-index: -1;
+  //   width: 100%;
+  //   height: 606px;
+  //   top: 0;
+  //   bottom: 0;
+  //   left: 0;
+  //   right: 0;
+  //   background: url(../../../sources/images/fondo.jpg) center center;
+  //   opacity: 0.8;
     
-  }
+  // }
 }

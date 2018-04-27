@@ -13,7 +13,7 @@
         url: '/',
         templateUrl: './components/landingPage/landingPage.view.html',
         data: {
-          pageTitle: 'EcoHoteles'
+          pageTitle: 'Eco Hoteles'
         }
       })
 
