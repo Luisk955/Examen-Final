@@ -38,13 +38,7 @@
             swal("Registro exitoso", "El cliente ha sido registrado correctamente", "success", {
               button: "Aceptar",
             });
-
-            if (vm.userAuth != 'administrador@hoteleria.cr') {
-              $location.path('/logIn');
-            }
-            else {
-              $location.path('main/listUser');
-            }
+            $location.path('main/listUser');
           }
         }
         else{
