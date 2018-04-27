@@ -37,15 +37,11 @@ class Hotel {
     this.reservationEmail = pReservationEmail;
     this.photo = pPhoto;
     this.state = '';
-    this.rating = 0;
-    this.ratingQuant = 0;
+    this.rating = [];
   }
-  
-  addRatingQuant(){
-    this.ratingQuant++;
-  }
-  setRating(pRate){
-    this.rating = pRate;
+
+  addRating(pRate){
+    this.rating.push(pRate);
   }
   changeState(pState) {
     this.state = pState;

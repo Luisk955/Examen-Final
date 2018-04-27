@@ -16,8 +16,7 @@ var HotelSchema = new mongoose.Schema({
   reservationEmail : {type : String, required : true},
   photo : {type : String, required : true},
   state : {type : String, required : true},
-  rating : {type : String, required : true},
-  ratingQuant : {type : String, required : true},
+  rating : {type : Array, required : true},
 });
 
 //nombre del modelo dentro del back end y el HotelSchema es el nombre dentro de mongoose

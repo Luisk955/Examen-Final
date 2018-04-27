@@ -16,7 +16,6 @@ module.exports.register = (req, res) => {
     photo            :  req.body.photo,
     state: req.body.state,
     rating: req.body.rating,
-    ratingQuant: req.body.ratingQuant,
     
   });
 
@@ -36,6 +35,7 @@ module.exports.listAll = (req,res) => {
 };
 
 module.exports.update = (req,res) => {
+  req.body.rating = JSON.parse(req.body.rating);
   HotelModel.update({_id: req.body._id}, req.body, (err, hotel) => {
     if (err){
       res.json({success:false, msg: 'No se ha actualizado.' + handleError(err)});

@@ -8,8 +8,11 @@
 <div class="jumbotron fixImage" ng-repeat="hotel in vm.hotelsList | filter:searchHotel">
       <h1 class="display-4">{{hotel.name}}</h1> 
       <hr class="my-4"> 
-      <div class="container"><jk-rating-stars max-rating="5" rating="3">
-        </jk-rating-stars></div>
+      <div class="container">
+        <jk-rating-stars max-rating="5" rating="vm.calcProm(hotel.rating)">
+        </jk-rating-stars>
+      </div>
+
       <div class="row">
         <div class="col-md-6">
           <ng-map id="map" center="{{hotel.latitude}}, {{hotel.longitude}}"  class="mapHotReg">

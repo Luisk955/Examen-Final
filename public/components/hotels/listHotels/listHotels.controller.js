@@ -74,20 +74,23 @@
     };
 
     vm.addRate = () => {
+
       let hotelsList = hotelsService.getHotelsData();
+      let calc = (vm.rate1 + vm.rate2 + vm.rate3 + vm.rate4 + vm.rate5) / 5;
       
-      
+
       for (let i = 0; i < hotelsList.length; i++) {
         if (hotelsList[i].name == vm.hotelCalif.name) {
-          let rate = Number((vm.rate1 + vm.rate2 + vm.rate3 + vm.rate4 + vm.rate5) / 5);
-          hotelsList[i].addRatingQuant();
-          let rateFinal = (rate + hotelsList[i].rating / hotelsList[i].ratingQuant);
-          hotelsList[i].setRating(rateFinal);
+          hotelsList[i].addRating(calc);
           hotelsService.updateHotelData(hotelsList[i]);
         }
       };
       location.reload();
     };
 
+    vm.calcProm = (rating) => {
+      return rating.reduce((sum, x) => sum + x) / rating.length;
+    }
+    
   }
 })();

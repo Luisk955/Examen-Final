@@ -74,8 +74,6 @@
     vm.registerHotel = (pNewHotel, imgUrl) => {
       pNewHotel.photo = imgUrl;
       pNewHotel.state = 'activo';
-      pNewHotel.rating = 0;
-      pNewHotel.ratingQuant = 0;
       pNewHotel.latitude = vm.current[0];
       pNewHotel.longitude = vm.current[1];
 
