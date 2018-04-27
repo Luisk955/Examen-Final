@@ -84,7 +84,7 @@
         swal("Registro exitoso", "El hotel ha sido registrado correctamente", "success", {
           button: "Aceptar",
         });
-        $location.path('/main.listHotels');
+        $location.path('/main/listHotels');
       }
     }
   }
